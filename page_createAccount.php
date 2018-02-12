@@ -2,42 +2,36 @@
 <html>
 <body>
 
-<p>UserID Username Password, FirstName, LastName, DOB, Bio, Interest, Job, Employer, isSuspended, isPublic, ProfilePicture </p>
-
-<form action="page_createAccount.php">
+<form action="page_userFeed.php">
   <fieldset>
     <legend>User Information:</legend>
     
     Username:
+    <br>
     <input type="text" name="username" placeholder="Username">
     <br>
-    
-    Password:
-    <input type="password" name="password" placeholder="Password">
     <br>
-
-    Confirm Password:
+    Password:
+    <br>
+    <input type="password" name="password" placeholder="Password"> <br>
     <input type="password" name="con_password" placeholder="Confirm Password">
+    <br>
     <br>
 
 
     Name:
+    <br>
     <input type="text" name="firstname" placeholder="First Name"> <input type="text" name="lastname" placeholder="Last Name">
+    <br>
 
     <br>
     Date of Birth:
+    <br>
+    <input type="date" name="bday" min="1900-01-01">
+    <br>
 
     <br>
-    Interest:
-
-    <br>
-    Job:
-
-    <br>
-    Employer:
-
-    <br>
-    Privacy:
+    Privacy Setting:
     <br>
     <form>
       <input type="radio" name="privacy" value="Private"> Private<br>
@@ -45,7 +39,8 @@
     </form> 
     
     <br>
-    <input type="submit" value="Submit">
+    <input type="submit" value="Create Account">
+    
 
   </fieldset>
 </form>
