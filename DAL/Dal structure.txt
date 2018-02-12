@@ -1,0 +1,1 @@
+//DAL would only have database functions to push fed in data to the mysql database
