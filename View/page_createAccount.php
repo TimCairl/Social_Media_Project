@@ -2,7 +2,7 @@
 <html>
 <body>
 
-<form action="page_userFeed.php">
+<form action="../DAL/DAL_confirmPassword.php">
   <fieldset>
     <legend>User Information:</legend>
     
