@@ -1,3 +1,18 @@
+<?php
+
+/*
+This page will:
+- Display the current user settings
+- [SAVE]: Pass current/new settings to DAL_setUserSettings
+- [Back]: Go to page_userFeed
+
+*/
+
+
+?>
+
+
+
 <html>
 <body>
 
