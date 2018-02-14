@@ -1,1 +1,1 @@
-// Model description here
+// Model houses the classes used
