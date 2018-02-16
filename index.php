@@ -14,8 +14,8 @@ $AppSettingsRepository = new AppSettingsRepository();
 
 //-------------------------//
 
-
-<title>$AppSettingsRepository->pullApplicationNameFromDatabase()</title>
+$ApplicationName = $AppSettingsRepository->pullApplicationNameFromDatabase();
+<title>$ApplicationName</title>
 <body>
 
 <h1>This is a heading</h1>
