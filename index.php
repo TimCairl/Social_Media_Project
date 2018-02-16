@@ -15,12 +15,12 @@ $AppSettingsRepository = new AppSettingsRepository();
 //-------------------------//
 
 $ApplicationName = $AppSettingsRepository->pullApplicationNameFromDatabase();
-<title>$ApplicationName</title>
-<body>
+echo "<title>".$ApplicationName."</title>"
+echo "<body>
 
 <h1>This is a heading</h1>
 <p>This is a paragraph.</p>
 
-</body>
+</body>"
 ?>
 </html>
