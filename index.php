@@ -11,7 +11,7 @@ $AppSettingsRepository = new AppSettingsRepository();
 
 
 
-?>
+
 //-------------------------//
 
 
@@ -22,4 +22,5 @@ $AppSettingsRepository = new AppSettingsRepository();
 <p>This is a paragraph.</p>
 
 </body>
+?>
 </html>
