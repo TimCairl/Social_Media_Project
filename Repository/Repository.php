@@ -2,7 +2,7 @@
 class Repository
 {
     //create connection to sql
-    private $connection;
+    protected $connection;
     
     function __construct()
     {

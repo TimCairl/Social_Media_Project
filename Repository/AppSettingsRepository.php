@@ -1,11 +1,13 @@
 <?php
-class ApplicationSettingsRepository extends Repository
+include_once("Repository.php");
+class AppSettingsRepository extends Repository
 {
-    function pullApplicationNameFromDatabase()
+    function pullAppNameFromDatabase()
     {
         $sql = "SELECT setting_value FROM 'applicationsettings' WHERE setting_key='ApplicationName'";
-        $applicationName = $connection->query($sql);
-        return $applicationName;
+        $appName = $this->connection->query($sql);
+        echo $appName;
+        return $appName;
     }
 }
 ?>

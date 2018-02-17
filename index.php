@@ -1,10 +1,9 @@
-//This is going to be the first file displayed and executed
 <!DOCTYPE html>
 <html>
-
+<?php
 //-------------------------//
 //put controller logic here
-<?php
+include_once("Repository/AppSettingsRepository.php");
 $AppSettingsRepository = new AppSettingsRepository();
 
 
@@ -14,13 +13,14 @@ $AppSettingsRepository = new AppSettingsRepository();
 
 //-------------------------//
 
-$ApplicationName = $AppSettingsRepository->pullApplicationNameFromDatabase();
-echo "<title>".$ApplicationName."</title>"
+$AppName = $AppSettingsRepository->pullAppNameFromDatabase();
+echo $AppName;
+echo "<title>".$AppName."</title>";
 echo "<body>
 
 <h1>This is a heading</h1>
 <p>This is a paragraph.</p>
 
-</body>"
+</body>";
 ?>
 </html>
