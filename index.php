@@ -23,4 +23,9 @@ echo "<body>
 
 </body>";
 ?>
+
+<form action="View/page_front.php">
+    <input type="submit" value="Front Page">
+</form>
+
 </html>
