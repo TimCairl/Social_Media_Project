@@ -1,6 +1,37 @@
 <html>
 <body>
-<form action="../DAL/DAL_createAccount.php" method="post">
+
+<?php
+
+$username = $firstname = $lastname = $bday = $privacy = "";
+$userERR = $passERR = $nameERR = $bdayERR = "";
+
+function test_data($data) 
+{
+  /* 
+  I might have to change/remove this. It's from here:
+  https://www.w3schools.com/php/showphp.asp?filename=demo_form_validation_complete
+  */
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+
+function choose_target_page()
+{
+    $target = "../DAL/DAL_createAccount.php";
+    if(empty($_POST["username"]))
+    {
+        $target = $_SERVER["PHP_SELF"];
+    }
+    return $target;
+}
+
+
+?>
+
+<form action="<?php echo choose_target_page();?>" method="post">
   <fieldset>
     <legend>User Information:</legend>
     

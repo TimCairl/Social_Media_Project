@@ -25,7 +25,9 @@
     $sql = "INSERT INTO users (username, password, firstName, lastName, dateOfBirth, bio, interest, job, employeer, isSuspended, isPublic, profilePicture) 
     VALUES ('$username', '$password', '$fname', '$lname', '$dob', 'This is my page!', '$t', '$t', '$t', '0', '$privacy', '$t')";
     
-    
+    $connection->query($sql);
+
+    /*
     if($connection->query($sql) === TRUE)
     {
         echo "New record created successfully";
@@ -34,19 +36,12 @@
     {
         echo "Error: " . $sql . "<br>" . $connection->error . "<br>";
     }
+    */
 
     $connection->close();
+
+    header('Location: '.'../View/page_front.php');
+    die();
 ?>
-
-Username   : <?php echo $_POST["username"];?> <br>
-Password   : <?php echo $_POST["password"]; ?> <br>
-Con_Pass   : <?php echo $_POST["con_password"]; ?> <br>
-First Name : <?php echo $_POST["firstname"]; ?> <br>
-Last Name  : <?php echo $_POST["lastname"]; ?> <br>
-DOB        : <?php echo $_POST["bday"]; ?> <br>
-Privacy    : <?php echo $_POST["privacy"]; ?> <br>
-
-
-
 </body>
 </html>

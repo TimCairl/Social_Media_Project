@@ -12,8 +12,6 @@
 
 //userId	username	password	firstName	lastName	dateOfBirth	bio	interest	job	employeer	isSuspended	isPublic	profilePicture
 
-include '../DAL/DAL_create'
-
 //$username = $password = $con_password = $firstname = $lastname = $bday = $privacy = "";
 //$userERR = $passERR = $fnameERR = $lnameERR = $bdayERR = "";
 
