@@ -16,9 +16,5 @@
     <input type="submit" value="Create Account">
 </form>
 
-<form action="page_CSSTest.php">
-    <input type="submit" value="[TEMP] CSS Test Page">
-</form>
-
 </body>
 </html>

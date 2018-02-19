@@ -1,20 +1,10 @@
-<!DOCTYPE html>
 <html>
-<head>
-<style>
-
-</style>
-</head>
-
 <body>
 
 <?php
 
-//userId	username	password	firstName	lastName	dateOfBirth	bio	interest	job	employeer	isSuspended	isPublic	profilePicture
-
-
-$username = $password = $con_password = $firstname = $lastname = $bday = $privacy = "";
-$userERR = $passERR = $fnameERR = $lnameERR = $bdayERR = "";
+$username = $firstname = $lastname = $bday = $privacy = "";
+$userERR = $passERR = $nameERR = $bdayERR = "";
 
 function test_data($data) 
 {
@@ -28,53 +18,20 @@ function test_data($data)
   return $data;
 }
 
-function create_account($uname, $pass, $fname, $lname, $dob, $bio, $interest, $job, $employer, $suspended, $public, $pic)
+function choose_target_page()
 {
-  
-}
-
-
-if($_SERVER["REQUEST_METHOD"] == "POST")
-{
-  //Username
-  if(empty($_POST["username"]))
-  {
-    $userERR = "Enter a Username";
-  }
-  else
-  {
-    $username = test_data($_POST["username"]);
-  }
-
-  //Password
-  if(empty($_POST["password"]))
-  {
-    $passERR = "Enter a Password";
-  }
-  else
-  {
-    $password = test_data($_POST["password"]);
-    if(!preg_match("/^[a-zA-Z0-9]*$/", $password))
+    $target = "../DAL/DAL_createAccount.php";
+    if(empty($_POST["username"]))
     {
-      $passERR = "Passwords can only contain letters and numbers (maybe change this later)";
+        $target = $_SERVER["PHP_SELF"];
     }
-    else
-    {
-      $con_password = test_data($_POST["con_password"]);
-    }
-  }
-
+    return $target;
 }
-
-
-
-
 
 
 ?>
 
-
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<form action="<?php echo choose_target_page();?>" method="post">
   <fieldset>
     <legend>User Information:</legend>
     
@@ -106,8 +63,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     Privacy Setting:
     <br>
     <form>
-      <input type="radio" name="privacy" value="Private"> Private<br>
-      <input type="radio" name="privacy" value="Public" checked> Public<br>  
+      <input type="radio" name="privacy" value="0"> Private<br>
+      <input type="radio" name="privacy" value="1" checked> Public<br>  
     </form> 
     
     <br>
