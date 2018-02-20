@@ -4,6 +4,7 @@
 //-------------------------//
 //put controller logic here
 require_once("Repository/AppSettingsRepository.php");
+
 $AppSettingsRepository = new AppSettingsRepository();
 
 
