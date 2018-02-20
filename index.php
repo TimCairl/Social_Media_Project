@@ -13,10 +13,16 @@ $AppSettingsRepository = new AppSettingsRepository();
 //-------------------------//
 
 $AppName = $AppSettingsRepository->pullAppNameFromDatabase();
-echo $AppName;
 echo "<title>".$AppName."</title>";
 echo "<body>
-<link rel="icon" href="favicon.ico" type="image/ico" sizes="16x16">
+
+
+
+<link rel='icon' href='favicon.ico' type='image/ico' sizes='16x16'> //FIX MEEEE
+
+
+
+
 <h1>This is a heading</h1>
 <p>This is a paragraph.</p>
 

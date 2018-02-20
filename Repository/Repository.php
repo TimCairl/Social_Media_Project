@@ -21,6 +21,11 @@ class Repository
         //$connection->query($sql);
     }
 
+    function pullFromDatabase()
+    {
+        //Template of this function that can be used for classes inheriting from this class.
+    }
+
     function __deconstruct()
     {
         //When the link is broken to an instance of this class, this method is called.
