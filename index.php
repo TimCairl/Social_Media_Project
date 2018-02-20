@@ -18,7 +18,7 @@ echo "<body>";
 
 
 
-echo "<link rel='icon' href='favicon.ico' type='image/ico' sizes='16x16'>" //FIX MEEEE
+echo "<link rel='icon' href='favicon.ico' type='image/ico' sizes='16x16'>"; //FIX MEEEE
 
 
 
