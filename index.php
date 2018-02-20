@@ -14,19 +14,19 @@ $AppSettingsRepository = new AppSettingsRepository();
 
 $AppName = $AppSettingsRepository->pullAppNameFromDatabase();
 echo "<title>".$AppName."</title>";
-echo "<body>
+echo "<body>";
 
 
 
-<link rel='icon' href='favicon.ico' type='image/ico' sizes='16x16'> //FIX MEEEE
+echo "<link rel='icon' href='favicon.ico' type='image/ico' sizes='16x16'>" //FIX MEEEE
 
 
 
 
-<h1>This is a heading</h1>
-<p>This is a paragraph.</p>
+echo "<h1>This is a heading</h1>";
+echo "<p>This is a paragraph.</p>";
 
-</body>";
+echo "</body>";
 ?>
 
 <form action="View/page_front.php">
