@@ -13,8 +13,8 @@ $AppSettingsRepository = new AppSettingsRepository();
 
 //-------------------------//
 
-$AppName = $AppSettingsRepository->pullAppNameFromDatabase();
-echo "<title>".$AppName."</title>";
+$AppSettingsModel = $AppSettingsRepository->pullAllFromDatabase();
+echo "<title>".$AppSettingsModel->applicationName."</title>";
 echo "<body>";
 
 

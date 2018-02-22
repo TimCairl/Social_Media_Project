@@ -21,7 +21,7 @@ class Repository
         //$connection->query($sql);
     }
 
-    function pullFromDatabase()
+    function pullAllFromDatabase()
     {
         //Template of this function that can be used for classes inheriting from this class.
     }

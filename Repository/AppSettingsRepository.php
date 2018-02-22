@@ -1,23 +1,33 @@
 <?php
-require_once("Repository.php");
+require_once(realpath($_SERVER["DOCUMENT_ROOT"])."/Social_Media_Project/Repository/Repository.php");
+require_once(realpath($_SERVER["DOCUMENT_ROOT"])."/Social_Media_Project/Model/ApplicationSettingsModel.php");
 class AppSettingsRepository extends Repository
 {
-    function pullAppNameFromDatabase()
+    function pullAllFromDatabase()
     {
-        $sql = "SELECT setting_value FROM applicationsettings WHERE setting_key='ApplicationName'";
+        //Pulls all the data from applicationsettings database and
+        //creates and returns a model with associated data from database
+        $ApplicationSettingsModel = new ApplicationSettingsModel();
+
+
+
         
-        $res = $this->connection->query($sql);
-        if($res->num_rows > 0)
+        //FIX ME TO SUPPORT MULTIPLE SETTING VALUES AND KEYS
+        $sqlcommand = "SELECT setting_value FROM applicationsettings WHERE setting_key='ApplicationName'";
+        //do some research on sql commands and how they work ^^^^^^
+        
+        $result = $this->connection->query($sqlcommand);
+        if($result->num_rows > 0)
         {
-            $row = $res->fetch_assoc();
+            $row = $result->fetch_assoc();
             $appName = $row['setting_value'];
-            return $appName;
         }
-        else
-        {
-            return "";
-        }
-        
+        $ApplicationSettingsModel->applicationName = $appName;
+        //FIX ME TO SUPPORT MULTIPLE SETTING VALUES AND KEYS
+
+
+
+        return $ApplicationSettingsModel;
     }
 }
 ?>
