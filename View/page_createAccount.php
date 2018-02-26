@@ -1,7 +1,22 @@
 <html>
-<body>
-
+<head>
+  <link rel="stylesheet" type="text/css" href="../CSS/styles.css">
+</head>
 <?php
+
+require_once("../Repository/AppSettingsRepository.php");
+$AppSettingsRepository = new AppSettingsRepository();
+$AppSettingsModel = $AppSettingsRepository->pullAllFromDatabase();
+
+echo 
+"<body class='blue'>
+<div class='white'><br></div>
+<div class='greyDark title'>
+  <br>"
+    .$AppSettingsModel->applicationName." <br>
+  <br>
+</div>
+<div class='white'><br></div>";
 
 $username = $firstname = $lastname = $bday = $privacy = "";
 $userERR = $passERR = $nameERR = $bdayERR = "";
@@ -30,9 +45,9 @@ function choose_target_page()
 
 
 ?>
-
+<div class='createBox'>
 <form action="<?php echo choose_target_page();?>" method="post">
-  <fieldset>
+  <fieldset class='whiteText createTextField'>
     <legend>User Information:</legend>
     
     Username:
@@ -73,5 +88,7 @@ function choose_target_page()
 
   </fieldset>
 </form>
+</div>
+<div class='white shortline2'><br></div>
 </body>
 </html>

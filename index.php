@@ -28,6 +28,10 @@ echo "<h1>This is a heading</h1>";
 echo "<p>This is a paragraph.</p>";
 
 echo "</body>";
+
+header('Location: '.'View/page_front.php');
+die();
+
 ?>
 
 <form action="View/page_front.php">
