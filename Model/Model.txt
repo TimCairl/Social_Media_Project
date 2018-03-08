@@ -1,1 +1,1 @@
-// Model houses the classes used
+//The model is a class with attributes reflecting components of tables in our database
