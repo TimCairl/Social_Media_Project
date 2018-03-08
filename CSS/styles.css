@@ -1,3 +1,58 @@
+.BG_Orange
+{
+  background-color: #AF5B26;
+}
+
+.BG_Blue
+{
+  background-color: rgb(55, 92, 165);
+}
+
+.BG_LGrey
+{
+  background-color: #4C4C47;
+}
+
+.BG_DGrey
+{
+  background-color: #2D2D2A;
+}
+
+.BG_White
+{
+  background-color: #E5DCC5;
+}
+
+
+.TXT_Orange
+{
+  color: #AF5B26;
+}
+
+.TXT_Blue
+{
+  color: rgb(55, 92, 165);
+}
+
+.TXT_LGrey
+{
+  color: #4C4C47;
+}
+
+.TXT_DGrey
+{
+  color: #2D2D2A;
+}
+
+.TXT_White
+{
+  color: #E5DCC5;
+}
+
+.TXT_Center
+{
+  text-align: center;
+}
 
 .title
 {
@@ -5,37 +60,7 @@
   color: #E5DCC5;
   padding-left: 45px;
   border-left: 30px solid #AF5B26;
-  border-right: 15px solid #4C4C47;
-}
-
-.orange
-{
-  background-color: #AF5B26;
-}
-
-.greyDark
-{
-  background-color: #2D2D2A;
-}
-
-.greyLight
-{
-  background-color: #4C4C47;
-}
-
-.blue
-{
-  background-color: #848FA5;
-}
-
-.white
-{
-  background-color: #E5DCC5;
-}
-
-.whiteText
-{
-    color: #E5DCC5;
+  border-right: 30px solid #AF5B26;
 }
 
 .loginBox
@@ -44,19 +69,9 @@
   padding-left: 5px;
   padding-right: 5px;
   border-left: 30px solid #AF5B26;
-  border-right: 15px solid #4C4C47;
+  border-right: 30px solid #AF5B26;
   background-color: #2D2D2A;
   text-align: center;
-}
-
-.shortline
-{
-  width: 305;
-}
-
-.shortline2
-{
-    width: 525px;
 }
 
 .createBox
@@ -68,7 +83,7 @@
   padding-top: 10px;
   padding-bottom: 10px;
   border-left: 30px solid #AF5B26;
-  border-right: 15px solid #4C4C47;
+  border-right: 30px solid #AF5B26;
   background-color: #2D2D2A;
   text-align: center;
 }
@@ -77,4 +92,14 @@
 {
     text-align: left;
     padding-left: 5px;
+}
+
+.shortline
+{
+  width: 320;
+}
+
+.shortline2
+{
+    width: 540px;
 }

@@ -9,14 +9,15 @@ $AppSettingsRepository = new AppSettingsRepository();
 $AppSettingsModel = $AppSettingsRepository->pullAllFromDatabase();
 
 echo 
-"<body class='blue'>
-<div class='white'><br></div>
-<div class='greyDark title'>
+"<body class='BG_DGrey'>
+<div class='BG_Blue'><br></div>
+<div class='BG_LGrey'><br></div>
+<div class='BG_DGrey title'>
   <br>"
     .$AppSettingsModel->applicationName." <br>
   <br>
 </div>
-<div class='white'><br></div>";
+<div class='BG_LGrey'><br></div>";
 
 $username = $firstname = $lastname = $bday = $privacy = "";
 $userERR = $passERR = $nameERR = $bdayERR = "";
@@ -47,7 +48,7 @@ function choose_target_page()
 ?>
 <div class='createBox'>
 <form action="<?php echo choose_target_page();?>" method="post">
-  <fieldset class='whiteText createTextField'>
+  <fieldset class='TXT_White createTextField'>
     <legend>User Information:</legend>
     
     Username:
@@ -89,6 +90,6 @@ function choose_target_page()
   </fieldset>
 </form>
 </div>
-<div class='white shortline2'><br></div>
+<div class='BG_LGrey shortline2'><br></div>
 </body>
 </html>
