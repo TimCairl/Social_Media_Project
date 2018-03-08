@@ -10,14 +10,15 @@ $AppSettingsRepository = new AppSettingsRepository();
 $AppSettingsModel = $AppSettingsRepository->pullAllFromDatabase();
 
 echo 
-"<body class='blue'>
-<div class='white'><br></div>
-<div class='greyDark title'>
+"<body class='BG_DGrey'>
+<div class='BG_Blue'><br></div>
+<div class='BG_LGrey'><br></div>
+<div class='BG_DGrey title'>
   <br>"
     .$AppSettingsModel->applicationName." <br>
   <br>
 </div>
-<div class='white'><br></div>";
+<div class='BG_LGrey'><br></div>";
 ?>
 
 <div class="loginBox">
@@ -37,7 +38,7 @@ echo
 </form>
 <br>
 </div>
-<div class='white shortline'><br></div>
+<div class='BG_LGrey shortline'><br></div>
 
 </body>
 </html>
