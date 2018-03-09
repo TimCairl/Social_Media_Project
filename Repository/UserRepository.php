@@ -21,7 +21,6 @@ class UserRepository extends Repository
 
         if($result->num_rows > 0)
         {
-            
             $row = $result->fetch_assoc();
             $UserModel->userID = $row['userId'];
             $UserModel->username = $row['username'];
@@ -39,6 +38,18 @@ class UserRepository extends Repository
         }
 
         return $UserModel;
+    }
+
+    // Also used to check if a username is in the database already.
+    function get_ID_with_Username($username)
+    {
+        $id = -1;
+        $result = $this->connection->query("SELECT userId FROM users WHERE username='$username'");
+        if($result->num_rows > 0)
+        {
+            $id = $result->fetch_assoc()['userId'];
+        }
+        return $id;
     }
 
     function pullAllFromDatabase()//this would pull literally every single user from the database

@@ -2,6 +2,9 @@
 <body>
 
 <?php
+    require_once("../Repository/UserRepository.php");
+    $UserRepo = new UserRepository();
+
     $server = "localhost";
     $username = "root";
     $password = "";
@@ -11,6 +14,12 @@
     if($connection->connect_error)
     {
         die("Connection Failed: " . $connection->connect_error);
+    }
+
+    if($UserRepo->get_ID_with_Username($_POST["username"]) != -1)
+    {
+        header('Location: '.'../View/page_createAccount.php');
+        die();
     }
 
     $username = $_POST["username"];
