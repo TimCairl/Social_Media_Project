@@ -7,7 +7,7 @@ class UserModel
     public $userFirstName;//users first name
     public $userLastName;//users last name
     public $userDOB;//users date of birth
-    public $userAge;//users age
+    //public $userAge;//users age | Not in the database
     public $userBio;//users biography on their account
     public $userInterest;//user interest or maybe interests?
     public $userJob;//users job maybe jobs?

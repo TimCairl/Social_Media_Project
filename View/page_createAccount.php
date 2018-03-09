@@ -9,15 +9,15 @@ $AppSettingsRepository = new AppSettingsRepository();
 $AppSettingsModel = $AppSettingsRepository->pullAllFromDatabase();
 
 echo 
-"<body class='BG_DGrey'>
+"<body class='BG_LGrey'>
 <div class='BG_Blue'><br></div>
-<div class='BG_LGrey'><br></div>
+<div class='BG_Orange'><br></div>
 <div class='BG_DGrey title'>
   <br>"
     .$AppSettingsModel->applicationName." <br>
   <br>
 </div>
-<div class='BG_LGrey'><br></div>";
+<div class='BG_Orange'><br></div>";
 
 $username = $firstname = $lastname = $bday = $privacy = "";
 $userERR = $passERR = $nameERR = $bdayERR = "";
@@ -90,6 +90,6 @@ function choose_target_page()
   </fieldset>
 </form>
 </div>
-<div class='BG_LGrey shortline2'><br></div>
+<div class='BG_Orange shortline2'><br></div>
 </body>
 </html>

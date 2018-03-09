@@ -16,15 +16,27 @@ class UserRepository extends Repository
         //creates and returns a model with associated data
         $UserModel = new UserModel();
 
-        $sqlcommand = "SELECT  FROM applicationsettings WHERE setting_key='ApplicationName'";
+        $sqlcommand = "SELECT * FROM users WHERE userId='$userid'";
+        $result = $this->connection->query($sqlcommand);
 
         if($result->num_rows > 0)
         {
+            
             $row = $result->fetch_assoc();
-            $appName = $row[''];
+            $UserModel->userID = $row['userId'];
+            $UserModel->username = $row['username'];
+            $UserModel->userPassword = $row['password'];
+            $UserModel->userFirstName = $row['firstName'];
+            $UserModel->userLastName = $row['lastName'];
+            $UserModel->userDOB = $row['dateOfBirth'];
+            $UserModel->userBio = $row['bio'];
+            $UserModel->userInterest = $row['interest'];
+            $UserModel->userJob = $row['job'];
+            $UserModel->userEmployer = $row['employeer']; // 'employeer' in the table, should be changed to 'employer'
+            $UserModel->userIsSuspended = $row['isSuspended'];
+            $UserModel->userIsPublic = $row['isPublic'];
+            $UserModel->userProfilePicture = $row['profilePicture'];
         }
-
-        $UserModel->;
 
         return $UserModel;
     }

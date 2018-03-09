@@ -10,20 +10,20 @@ $AppSettingsRepository = new AppSettingsRepository();
 $AppSettingsModel = $AppSettingsRepository->pullAllFromDatabase();
 
 echo 
-"<body class='BG_DGrey'>
+"<body class='BG_LGrey'>
 <div class='BG_Blue'><br></div>
-<div class='BG_LGrey'><br></div>
+<div class='BG_Orange'><br></div>
 <div class='BG_DGrey title'>
   <br>"
     .$AppSettingsModel->applicationName." <br>
   <br>
 </div>
-<div class='BG_LGrey'><br></div>";
+<div class='BG_Orange'><br></div>";
 ?>
 
 <div class="loginBox">
 <br>
-  <form action="page_logInFailed.php" nonvalidate>
+  <form action="../DAL/DAL_validateUser.php" nonvalidate method='post'>
     <fieldset>
       <input type="text" name="username" placeholder="Username" autofocus>
       <br>
@@ -38,7 +38,7 @@ echo
 </form>
 <br>
 </div>
-<div class='BG_LGrey shortline'><br></div>
+<div class='BG_Orange shortline'><br></div>
 
 </body>
 </html>
