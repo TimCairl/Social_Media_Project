@@ -65,7 +65,7 @@ class UserRepository extends Repository
             $UserModel->userBio = $row['bio'];
             $UserModel->userInterest = $row['interest'];
             $UserModel->userJob = $row['job'];
-            $UserModel->userEmployer = $row['employeer']; // 'employeer' in the table, should be changed to 'employer'
+            $UserModel->userEmployer = $row['employer'];
             $UserModel->userIsSuspended = $row['isSuspended'];
             $UserModel->userIsPublic = $row['isPublic'];
             $UserModel->userProfilePicture = $row['profilePicture'];
