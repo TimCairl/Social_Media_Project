@@ -10,6 +10,40 @@ class UserRepository extends Repository
         //$connection->query($sql);
     }
 
+    function update_user_data($UserModel)
+    {
+        //Could probably cut out first name, last name, and date of birth
+
+        /*
+        $sqlcommand = "UPDATE users SET
+         firstName='$UserModel->userFirstName',
+         lastName='$UserModel->userLastName',
+         dateOfBirth='$UserModel->userDOB',
+         bio='$UserModel->userBio',
+         interest='$UserModel->userInterest',
+         job='$UserModel->userJob',
+         employeer='$UserModel->userEmployer',
+         isSuspended='$UserModel->userIsSuspended',
+         isPublic='$UserModel->userIsPublic',
+         profilePicture='$userProfilePicture',
+         WHERE userId = $UserModel->userID";
+        */
+
+        //$sqlcommand = "UPDATE users SET firstName='$UserModel->userFirstName' WHERE userID=$UserModel->userID";
+
+        // I split them up into different commands because the other one didn't seem to work.
+        $this->connection->query("UPDATE users SET firstName='$UserModel->userFirstName' WHERE userID=$UserModel->userID");
+        $this->connection->query("UPDATE users SET lastName='$UserModel->userLastName' WHERE userID=$UserModel->userID");
+        $this->connection->query("UPDATE users SET dateOfBirth='$UserModel->userDOB' WHERE userID=$UserModel->userID");
+        $this->connection->query("UPDATE users SET bio='$UserModel->userBio' WHERE userID=$UserModel->userID");
+        $this->connection->query("UPDATE users SET interest='$UserModel->userInterest' WHERE userID=$UserModel->userID");
+        $this->connection->query("UPDATE users SET job='$UserModel->userJob' WHERE userID=$UserModel->userID");
+        $this->connection->query("UPDATE users SET employeer='$UserModel->userEmployer' WHERE userID=$UserModel->userID");
+        $this->connection->query("UPDATE users SET isPublic='$UserModel->userIsPublic' WHERE userID=$UserModel->userID");
+        $this->connection->query("UPDATE users SET isSuspended='$UserModel->userIsSuspended' WHERE userID=$UserModel->userID");
+        $this->connection->query("UPDATE users SET profilePicture='$UserModel->userProfilePicture' WHERE userID=$UserModel->userID");
+    }
+
     function pullUserFromDatabase($userid)
     {
         //Pulls the specified user from user table in the database and

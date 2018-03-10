@@ -1,33 +1,110 @@
 <?php
+    session_start();
 
-/*
-This page will:
-- Display the current user settings
-- [SAVE]: Pass current/new settings to DAL_setUserSettings
-- [Back]: Go to page_userFeed
+    require_once("../Repository/AppSettingsRepository.php");
+    $AppSettingsRepository = new AppSettingsRepository();
+    $AppSettingsModel = $AppSettingsRepository->pullAllFromDatabase();
 
-*/
-
-
+    require_once("../Repository/UserRepository.php");
+    $UserRepo = new UserRepository();
+    $UserModel = $UserRepo->pullUserFromDatabase($_SESSION['userID']);
 ?>
 
-
-
 <html>
-<body>
 
-<p>*UserID Username Password, FirstName, LastName, DOB, Bio, Interest, *Job, *Employer, isSuspended, isPublic, ProfilePicture </p>
+<head>
+    <link rel="stylesheet" type="text/css" href="../CSS/styles.css">
+</head>
 
-<br>
+<body class='BG_LGrey'>
+    <div class='BG_Blue'> <br> </div>
+    <div class='BG_Orange'> <br> </div>
+    <div class='BG_DGrey title'>
+        <br>
+        <?php echo $AppSettingsModel->applicationName ?>
+        <br>
+        <br>
+    </div>
+    <div class='BG_Orange'> <br> </div>
 
-<form action="page_userFeed.php">
-    <input type="submit" value="Back">
-</form>
-    
-<form action="page_editAccount.php">
-    <input type="submit" value="Save">
-</form>
+    <div class='createBox'>
+        <form action="../DAL/DAL_updateAccount.php" method="post">
+            <fieldset class='TXT_White createTextField'>
+                Profile Picture:
+                <br>
+                <input name='picture' size='55' value='<?php echo $UserModel->userProfilePicture?>'>
+                </input>
+                <br>
+                <br>
+            
+                Name:
+                <br>
+                <input type='text' name='firstName' placeholder='First' value='<?php echo $UserModel->userFirstName?>'>
+                <input type='text' name='lastName' placeholder='Last' value='<?php echo $UserModel->userLastName?>'>
+                <br>
+                <br>
 
+                Date-of-Birth:
+                <br>
+                <input type='date' name='bday' min='1900-01-01' value='<?php echo $UserModel->userDOB?>'>
+                <br>
+                <br>
+
+                Interests:
+                <br>
+                <input name='interest' size='55' value='<?php echo $UserModel->userInterest?>'>
+                </input>
+                <br>
+                <br>
+
+                Employer:
+                <br>
+                <input name='employer' size='55' value='<?php echo $UserModel->userEmployer?>'>
+                </input>
+                <br>
+                <br>
+
+                Job:
+                <br>
+                <input name='job' size='55' value='<?php echo $UserModel->userJob?>'>
+                </input>
+                <br>
+                <br>
+
+                Bio:
+                <br>
+                <input name='bio' size='55' value='<?php echo $UserModel->userBio?>'>
+                </input>
+                <br>
+                <br>
+
+                Privacy:
+                <br>
+                <form>
+                    <input type='radio' name='privacy' value='0' <?php if($UserModel->userIsPublic == 0){echo "checked";}?>> Private<br>
+                    <input type='radio' name='privacy' value='1' <?php if($UserModel->userIsPublic == 1){echo "checked";}?>> Public<br>  
+                </form> 
+                <br>
+
+                Suspend Account:
+                <br>
+                <form>
+                    <input type='radio' name='suspend' value='0' checked> No <br>
+                    <input type='radio' name='suspend' value='1'> Yes <br>
+                </form>
+                <br>
+
+                <input type="submit" value="Save">
+
+            </fieldset>
+        </form>
+
+        <form action="page_feed.php">
+            <input type="submit" value="Back">
+        </form>
+    </div>
+    <div class='BG_Orange shortline2'> <br> </div>
 
 </body>
+
 </html>

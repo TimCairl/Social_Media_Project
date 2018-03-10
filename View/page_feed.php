@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 /*
 This page will:
@@ -9,15 +10,20 @@ This page will:
 --- Log Out          (*something*)
 */
 
-?>
 
 
-<html>
+
+echo "<html>
 <body>
-[Feed Placeholder]
+<br>
+";
+
+echo $_SESSION['username'] . "'s Feed";
+
+?>
 <br>
 <br>
-<form action="page_editAccount.php">
+<form action="page_editProfile.php">
   <input type="submit" value="Edit Account">
 </form>
 

@@ -66,11 +66,12 @@ function choose_target_page()
 
     Name:
     <br>
-    <input type="text" name="firstname" placeholder="First Name"> <input type="text" name="lastname" placeholder="Last Name">
+    <input type="text" name="firstname" placeholder="First"> 
+    <input type="text" name="lastname" placeholder="Last">
     <br>
 
     <br>
-    Date of Birth:
+    Date-of-Birth:
     <br>
     <input type="date" name="bday" min="1900-01-01">
     <br>

@@ -2,6 +2,9 @@
 <body>
 
 <?php
+
+    //Should probably change this around since UserRepo already has a connection.
+
     require_once("../Repository/UserRepository.php");
     $UserRepo = new UserRepository();
 
