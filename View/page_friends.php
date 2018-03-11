@@ -11,8 +11,8 @@ $AppSettingsRepository = new AppSettingsRepository();
 $UserRepository = new UserRepository();
 
 $AppSettingsModel = $AppSettingsRepository->pullAllFromDatabase();
-$UserModel = $UserRepository->pullUserFromDatabase(1);
-$UserModel->userFriends = $UserRepository->fetchFriends(1);
+$UserModel = $UserRepository->pullUserFromDatabase(1);//magic number 1 for example
+$UserModel->userFriends = $UserRepository->fetchFriends(1);//magic number 1 for example
 /*
 End Controller Logic
 */
@@ -25,4 +25,17 @@ for ($i = 0; $i < count($UserModel->userFriends, 0); $i++)
     echo "<br>";
 }
 ?>
+
+<br><br><br>
+<form action="../Services/add_friend.php">
+  Friend Username to add: <input type="text" name="fname"><br>
+  <input type="submit" value="Add to friend list">
+</form>
+
+<br><br><br>
+
+<form action="../Services/remove_friend.php">
+  Friend Username to remove: <input type="text" name="fname"><br>
+  <input type="submit" value="Remove from friend list">
+</form>
 </html>

@@ -106,6 +106,14 @@ class UserRepository extends Repository
             return null;
         }
     }
+    
+    function changePassword($CurrentUserID, $NewPassword)
+    {
+        //add verification later
+
+        //Modifies the password of a given user by ID
+        $this->connection->query("UPDATE users SET password='$NewPasword' WHERE userID=$CurrentUserID");
+    }
 
     function addFriend($CurrentUserID, $UserToAddID)
     {
