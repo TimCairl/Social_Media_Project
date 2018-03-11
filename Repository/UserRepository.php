@@ -86,26 +86,37 @@ class UserRepository extends Repository
         return $id;
     }
 
-    function pullAllFromDatabase()//this would pull literally every single user from the database
+    function fetchFriends($UserID)
     {
-//        //Pulls all the data from applicationsettings database and
-//        //creates and returns a model with associated data from database
-//        $UserModel = new UserModel();
-//
-//        //FIX ME TO SUPPORT MULTIPLE SETTING VALUES AND KEYS
-//        $sqlcommand = "SELECT setting_value FROM applicationsettings WHERE setting_key='ApplicationName'";
-//        //do some research on sql commands and how they work ^^^^^^
-//
-//        $result = $this->connection->query($sqlcommand);
-//        if($result->num_rows > 0)
-//        {
-//            $row = $result->fetch_assoc();
-//            $appName = $row['setting_value'];
-//        }
-//        $UserModel->applicationName = $appName;
-//        //FIX ME TO SUPPORT MULTIPLE SETTING VALUES AND KEYS
-//
-//        return $UserModel;
+        //fetches all of the friends IDs associated with given usermodel->userid
+        //Call this method when page showing friends is first loaded in order to display them
+        $result = $this->connection->query("SELECT * FROM friends WHERE userId=$UserID");
+        $friendIds = array();
+        if($result->num_rows > 0)
+        {
+            for ($i = $result->num_rows; $i > 0; $i--)
+            {
+                $row = $result->fetch_assoc();
+                array_push($friendIds, $row['friendsUserId']);
+            }
+            return $friendIds;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    function addFriend($CurrentUserID, $UserToAddID)
+    {
+        //Adds a user to the current users friend list
+        $this->connection->query("INSERT INTO friends VALUES (".$CurrentUserID.", ".$UserToAddID.")");
+    }
+
+    function removeFriend($CurrentUserID, $UserToRemoveID)
+    {
+        //Removes a user from the current users friend list
+        $this->connection->query("DELETE FROM friends WHERE userId=".$CurrentUserID." AND friendsUserId=".$UserToRemoveID);
     }
 }
 ?>

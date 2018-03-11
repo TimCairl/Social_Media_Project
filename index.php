@@ -4,16 +4,15 @@
 //-------------------------//
 //put controller logic here
 require_once("Repository/AppSettingsRepository.php");
+require_once("Repository/UserRepository.php");
 
 $AppSettingsRepository = new AppSettingsRepository();
+$UserRepository = new UserRepository();
 
-
-
-
+$AppSettingsModel = $AppSettingsRepository->pullAllFromDatabase();
 
 //-------------------------//
 
-$AppSettingsModel = $AppSettingsRepository->pullAllFromDatabase();
 echo "<title>".$AppSettingsModel->applicationName."</title>";
 echo "<body>";
 
