@@ -38,7 +38,7 @@ class UserRepository extends Repository
         $this->connection->query("UPDATE users SET bio='$UserModel->userBio' WHERE userID=$UserModel->userID");
         $this->connection->query("UPDATE users SET interest='$UserModel->userInterest' WHERE userID=$UserModel->userID");
         $this->connection->query("UPDATE users SET job='$UserModel->userJob' WHERE userID=$UserModel->userID");
-        $this->connection->query("UPDATE users SET employeer='$UserModel->userEmployer' WHERE userID=$UserModel->userID");
+        $this->connection->query("UPDATE users SET employer='$UserModel->userEmployer' WHERE userID=$UserModel->userID");
         $this->connection->query("UPDATE users SET isPublic='$UserModel->userIsPublic' WHERE userID=$UserModel->userID");
         $this->connection->query("UPDATE users SET isSuspended='$UserModel->userIsSuspended' WHERE userID=$UserModel->userID");
         $this->connection->query("UPDATE users SET profilePicture='$UserModel->userProfilePicture' WHERE userID=$UserModel->userID");

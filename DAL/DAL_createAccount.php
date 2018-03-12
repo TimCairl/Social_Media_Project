@@ -33,7 +33,7 @@
     $privacy = $_POST["privacy"];
     $t = "-None-";
 
-    $sql = "INSERT INTO users (username, password, firstName, lastName, dateOfBirth, bio, interest, job, employeer, isSuspended, isPublic, profilePicture) 
+    $sql = "INSERT INTO users (username, password, firstName, lastName, dateOfBirth, bio, interest, job, employer, isSuspended, isPublic, profilePicture) 
     VALUES ('$username', '$password', '$fname', '$lname', '$dob', 'This is my page!', '$t', '$t', '$t', '0', '$privacy', '$t')";
     
     $connection->query($sql);
