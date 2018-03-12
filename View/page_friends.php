@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <?php
+session_start();
+
+
 /*
 Begin Controller Logic
 */
@@ -11,8 +14,8 @@ $AppSettingsRepository = new AppSettingsRepository();
 $UserRepository = new UserRepository();
 
 $AppSettingsModel = $AppSettingsRepository->pullAllFromDatabase();
-$UserModel = $UserRepository->pullUserFromDatabase(1);//magic number 1 for example
-$UserModel->userFriends = $UserRepository->fetchFriends(1);//magic number 1 for example
+$UserModel = $UserRepository->pullUserFromDatabase($_SESSION['userID']);//magic number 1 for example
+$UserModel->userFriends = $UserRepository->fetchFriends($_SESSION['userID']);//magic number 1 for example
 /*
 End Controller Logic
 */
@@ -28,14 +31,19 @@ for ($i = 0; $i < count($UserModel->userFriends, 0); $i++)
 
 <br><br><br>
 <form action="../Services/add_friend.php">
-  Friend Username to add: <input type="text" name="fname"><br>
+  Friend Username to add: <input type="text" name="username"><br>
   <input type="submit" value="Add to friend list">
 </form>
 
 <br><br><br>
 
 <form action="../Services/remove_friend.php">
-  Friend Username to remove: <input type="text" name="fname"><br>
+  Friend Username to remove: <input type="text" name="username"><br>
   <input type="submit" value="Remove from friend list">
 </form>
+
+<form action="../View/page_feed.php">
+  <input type="submit" value="Back to Feed">
+</form>
+
 </html>

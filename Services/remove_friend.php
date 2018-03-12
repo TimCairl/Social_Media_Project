@@ -1,12 +1,16 @@
 <?php
+session_start();
+
 require_once("../Repository/UserRepository.php");
 $UserRepository = new UserRepository();
-if ($UserRepository->get_ID_with_Username($_GET['fname']) != -1)
+if ($UserRepository->get_ID_with_Username($_GET['username']) != -1)
 {
-    $UserRepository->removeFriend(1, $UserRepository->get_ID_with_Username($_GET['fname']));//magic number one for example
+    $UserRepository->removeFriend($_SESSION['userID'], $UserRepository->get_ID_with_Username($_GET['username']));//magic number one for example
 }
 else
 {
     //no such user
 }
+header('Location: '.'../View/page_friends.php');
+die();
 ?>
