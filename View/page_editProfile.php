@@ -86,6 +86,10 @@
                 </form> 
                 <br>
 
+                <?php
+                /*
+                Move this to a different page
+
                 Suspend Account:
                 <br>
                 <form>
@@ -93,10 +97,20 @@
                     <input type='radio' name='suspend' value='1'> Yes <br>
                 </form>
                 <br>
+                */
+                ?>
 
                 <input type="submit" value="Save">
 
             </fieldset>
+        </form>
+
+        <form action="page_changePassword.php">
+            <input type="submit" value="Change Password">
+        </form>
+
+        <form action="page_suspendAccount.php">
+            <input type="submit" value="Suspend Account">
         </form>
 
         <form action="page_feed.php">

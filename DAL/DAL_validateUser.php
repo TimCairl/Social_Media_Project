@@ -18,16 +18,17 @@ if($_POST["password"] != $UserModel->userPassword)
     die();
 }
 
-$_SESSION['tempUserModel'] = 0;
+$_SESSION['tempUserModel'] = 0; //may not need this
 $_SESSION['userID'] = $UserModel->userID;
 $_SESSION['username'] = $UserModel->username; // May not need this
 
 
-if($UserModel->userIsSuspended == 1)
+if($UserModel->userIsSuspended == '1')
 {
     header('Location: '.'../View/page_reactivateAccount.php');
+    die();
 }
 
 header('Location: '.'../View/page_feed.php');
-
+die();
 ?>

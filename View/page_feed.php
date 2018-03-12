@@ -27,8 +27,12 @@ echo $_SESSION['username'] . "'s Feed";
   <input type="submit" value="Edit Account">
 </form>
 
+<form action="page_friends.php">
+  <input type="submit" value="Friends">
+</form>
+
 <form action="page_front.php">
-  <input type="submit" value="Back to Front">
+  <input type="submit" value="Log Out">
 </form>
 
 

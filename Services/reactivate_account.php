@@ -4,8 +4,8 @@
     require_once("../Repository/UserRepository.php");
     $UserRepo = new UserRepository();
 
-    $UserRepo->setSuspension($_SESSION['userID'], 1);
+    $UserRepo->setSuspension($_SESSION['userID'], 0);
 
-    header('Location: '.'../View/page_front.php');
+    header('Location: '.'../View/page_feed.php');
     die();
 ?>

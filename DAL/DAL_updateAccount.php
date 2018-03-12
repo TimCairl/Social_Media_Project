@@ -27,11 +27,11 @@
     $UserModel->userJob = $_POST['job'];
     $UserModel->userBio = $_POST['bio'];
     $UserModel->userIsPublic = $_POST['privacy'];
-    $UserModel->userIsSuspended = $_POST['suspend'];
+    //$UserModel->userIsSuspended = $_POST['suspend'];
 
     $UserRepo->update_user_data($UserModel);
 
-    if($UserModel->userIsSuspended == 1)
+    if($UserModel->userIsSuspended == '1')
     {
         header('Location: '.'../View/page_front.php');
         die();

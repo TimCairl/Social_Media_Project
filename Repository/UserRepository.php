@@ -65,7 +65,7 @@ class UserRepository extends Repository
             $UserModel->userBio = $row['bio'];
             $UserModel->userInterest = $row['interest'];
             $UserModel->userJob = $row['job'];
-            $UserModel->userEmployer = $row['employer'];
+            $UserModel->userEmployer = $row['employeer'];
             $UserModel->userIsSuspended = $row['isSuspended'];
             $UserModel->userIsPublic = $row['isPublic'];
             $UserModel->userProfilePicture = $row['profilePicture'];
@@ -112,7 +112,16 @@ class UserRepository extends Repository
         //add verification later
 
         //Modifies the password of a given user by ID
-        $this->connection->query("UPDATE users SET password='$NewPasword' WHERE userID=$CurrentUserID");
+        $this->connection->query("UPDATE users SET password='$NewPassword' WHERE userID=$CurrentUserID");
+    }
+
+    // I made this because the update_user_data wouldn't update the isSuspended field
+    function setSuspension($CurrentUserID, $zeroORone)
+    {
+        if($zeroORone == 0 or $zeroORone == 1)
+        {
+            $this->connection->query("UPDATE users SET isSuspended='$zeroORone' WHERE userID=$CurrentUserID");
+        }
     }
 
     function addFriend($CurrentUserID, $UserToAddID)
