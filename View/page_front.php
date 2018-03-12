@@ -23,7 +23,7 @@ echo
 
 <div class="loginBox">
 <br>
-  <form action="../DAL/DAL_validateUser.php" nonvalidate method='post'>
+  <form action="../Services/log_in.php" nonvalidate method='post'>
     <fieldset>
       <input type="text" name="username" placeholder="Username" autofocus>
       <br>

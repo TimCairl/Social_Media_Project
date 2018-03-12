@@ -30,13 +30,7 @@
     //$UserModel->userIsSuspended = $_POST['suspend'];
 
     $UserRepo->update_user_data($UserModel);
-
-    if($UserModel->userIsSuspended == '1')
-    {
-        header('Location: '.'../View/page_front.php');
-        die();
-    }
-
+    
     header('Location: '.'../View/page_feed.php');
     die();
 ?>

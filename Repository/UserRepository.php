@@ -8,6 +8,18 @@ class UserRepository extends Repository
         //Template of this function that can be used for classes inheriting from this class.
         //$sql = "insert into users (username, password, firstName, lastName) values('test123', 'password123', 'Joe', 'Schmoe')";
         //$connection->query($sql);
+
+        //I tried adding an argument to this and it didn't work so I made pushUserToDataBase();
+    }
+
+    function pushUserToDatabase($username, $password, $fname, $lname, $dob, $privacy)
+    {
+        $t = "-None-";
+        
+        $sql = "INSERT INTO users (username, password, firstName, lastName, dateOfBirth, bio, interest, job, employer, isSuspended, isPublic, profilePicture) 
+        VALUES ('$username', '$password', '$fname', '$lname', '$dob', 'This is my page!', '$t', '$t', '$t', '0', '$privacy', '$t')";
+    
+        $this->connection->query($sql);
     }
 
     function update_user_data($UserModel)
@@ -40,7 +52,7 @@ class UserRepository extends Repository
         $this->connection->query("UPDATE users SET job='$UserModel->userJob' WHERE userID=$UserModel->userID");
         $this->connection->query("UPDATE users SET employer='$UserModel->userEmployer' WHERE userID=$UserModel->userID");
         $this->connection->query("UPDATE users SET isPublic='$UserModel->userIsPublic' WHERE userID=$UserModel->userID");
-        $this->connection->query("UPDATE users SET isSuspended='$UserModel->userIsSuspended' WHERE userID=$UserModel->userID");
+        //$this->connection->query("UPDATE users SET isSuspended='$UserModel->userIsSuspended' WHERE userID=$UserModel->userID"); This one doesn't work
         $this->connection->query("UPDATE users SET profilePicture='$UserModel->userProfilePicture' WHERE userID=$UserModel->userID");
     }
 

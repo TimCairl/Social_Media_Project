@@ -28,7 +28,7 @@
     <div class='BG_Orange'> <br> </div>
 
     <div class='createBox'>
-        <form action="../DAL/DAL_updateAccount.php" method="post">
+        <form action="../Services/update_account.php" method="post">
             <fieldset class='TXT_White createTextField'>
                 Profile Picture:
                 <br>
