@@ -30,8 +30,8 @@ This page will:
     <?php echo $_SESSION['username'] . "'s Feed" ?> <br>
     <br>
 
-    <form action="page_editProfile.php">
-      <input type="submit" value="Edit Account">
+    <form action="page_profile.php">
+      <input type="submit" value="My Profile">
     </form>
 
     <form action="page_friends.php">

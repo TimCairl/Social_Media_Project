@@ -108,7 +108,7 @@
             <input type="submit" value="Suspend Account">
         </form>
 
-        <form action="page_feed.php">
+        <form action="page_profile.php">
             <input type="submit" value="Back">
         </form>
     </div>

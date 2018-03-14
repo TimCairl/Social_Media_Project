@@ -18,8 +18,9 @@ if($_POST["password"] != $UserModel->userPassword)
     die();
 }
 
-$_SESSION['tempUserModel'] = 0; //may not need this
+$_SESSION['tempUserModel'] = 0;               //may not need this (not currently used)
 $_SESSION['userID'] = $UserModel->userID;
+$_SESSION['viewID'] = $UserModel->userID;     //This will change if a user visits a friend's page.
 $_SESSION['username'] = $UserModel->username; // May not need this
 
 
