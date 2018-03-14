@@ -5,7 +5,7 @@
 
     if($UserRepo->get_ID_with_Username($_POST["username"]) != -1)
     {
-        header('Location: '.'../View/page_createAccount.php');
+        header('Location: '.'../View/page_account_create.php');
         die();
     }
 

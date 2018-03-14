@@ -30,11 +30,11 @@ This page will:
     <?php echo $_SESSION['username'] . "'s Feed" ?> <br>
     <br>
 
-    <form action="page_profile.php">
+    <form action="page_profile_view.php">
       <input type="submit" value="My Profile">
     </form>
 
-    <form action="page_friends.php">
+    <form action="page_friends_view.php">
       <input type="submit" value="Friends">
     </form>
 

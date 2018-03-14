@@ -17,11 +17,11 @@
         if($new_pass == $con_pass)
         {
             $UserRepo->changePassword($_SESSION['userID'], $con_pass);
-            header('Location: '.'../View/page_editProfile.php');
+            header('Location: '.'../View/page_profile_edit.php');
             die();
         }
     }
-    header('Location: '.'../View/page_changePassword.php');
+    header('Location: '.'../View/page_account_changePassword.php');
     die();
 
 

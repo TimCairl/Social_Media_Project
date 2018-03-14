@@ -30,14 +30,14 @@ for ($i = 0; $i < count($UserModel->userFriends, 0); $i++)
 ?>
 
 <br><br><br>
-<form action="../Services/add_friend.php">
+<form action="../Services/serv_friend_add.php">
   Friend Username to add: <input type="text" name="username"><br>
   <input type="submit" value="Add to friend list">
 </form>
 
 <br><br><br>
 
-<form action="../Services/remove_friend.php">
+<form action="../Services/serv_friend_remove.php">
   Friend Username to remove: <input type="text" name="username"><br>
   <input type="submit" value="Remove from friend list">
 </form>

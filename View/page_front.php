@@ -21,7 +21,7 @@ $AppSettingsModel = $AppSettingsRepository->pullAllFromDatabase();
 
 <div class="loginBox">
 <br>
-  <form action="../Services/log_in.php" nonvalidate method='post'>
+  <form action="../Services/serv_account_logIn.php" nonvalidate method='post'>
     <fieldset>
       <input type="text" name="username" placeholder="Username" autofocus>
       <br>
@@ -31,7 +31,7 @@ $AppSettingsModel = $AppSettingsRepository->pullAllFromDatabase();
     </fieldset>
   </form>
 <br>
-<form action="page_createAccount.php">
+<form action="page_account_create.php">
   <input type="submit" value="Create Account">
 </form>
 <br>

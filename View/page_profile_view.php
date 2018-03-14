@@ -26,7 +26,7 @@
             if($_SESSION['viewID'] == $_SESSION['userID'])
             {
                 echo
-                "<form action='page_editProfile.php'>
+                "<form action='page_profile_edit.php'>
                     <input type='submit' value='Edit Account'>
                 </form>
                 
@@ -37,7 +37,7 @@
             else
             {
                 echo
-                "<form action='page_friends.php'>
+                "<form action='page_friends_view.php'>
                     <input type='submit' value='Back to Friends'>
                 </form>";
             }

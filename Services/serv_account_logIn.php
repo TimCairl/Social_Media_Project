@@ -26,7 +26,7 @@ $_SESSION['username'] = $UserModel->username; // May not need this
 
 if($UserModel->userIsSuspended == '1')
 {
-    header('Location: '.'../View/page_reactivateAccount.php');
+    header('Location: '.'../View/page_account_reactivate.php');
     die();
 }
 

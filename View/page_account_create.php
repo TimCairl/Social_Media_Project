@@ -21,7 +21,7 @@
 
     function choose_target_page()
   {
-    $target = "../Services/create_account.php";
+    $target = "../Services/serv_account_create.php";
     if(empty($_POST["username"]))
     {
       $target = $_SERVER["PHP_SELF"];

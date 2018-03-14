@@ -23,7 +23,7 @@
     </div>
 
     <div class='createBox'>
-        <form action="../Services/update_account.php" method="post">
+        <form action="../Services/serv_account_changeProfile.php" method="post">
             <fieldset class='TXT_White createTextField'>
                 Profile Picture:
                 <br>
@@ -100,15 +100,15 @@
             </fieldset>
         </form>
 
-        <form action="page_changePassword.php">
+        <form action="page_account_changePassword.php">
             <input type="submit" value="Change Password">
         </form>
 
-        <form action="page_suspendAccount.php">
+        <form action="page_account_suspend.php">
             <input type="submit" value="Suspend Account">
         </form>
 
-        <form action="page_profile.php">
+        <form action="page_profile_view.php">
             <input type="submit" value="Back">
         </form>
     </div>

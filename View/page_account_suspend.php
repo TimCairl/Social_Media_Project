@@ -7,13 +7,13 @@
     </head>
     
     <body>
-        Reactivate Account?
+        Suspend Account?
         <br>
         <br>
-        <form action="../Services/reactivate_account.php">
-            <input type="submit" value="Reactivate">
+        <form action="../Services/serv_account_suspend.php">
+            <input type="submit" value="Suspend">
         </form>
-        <form action="page_front.php">
+        <form action="page_profile_edit.php">
             <input type="submit" value="Back">
         </form>
     </body>

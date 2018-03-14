@@ -4,7 +4,7 @@
 
 <html>
     <body class='BG_LGrey'>
-        <form action='../Services/change_password.php' method='post'>
+        <form action='../Services/serv_account_changePassword.php' method='post'>
             <fieldset>
                 | <input type='password' name='password_old' size='25'> | Old Password 
                 <br>
@@ -16,7 +16,7 @@
             <input type="submit" value="Change Password">
         </form>
         <br>
-        <form action="page_editProfile.php">
+        <form action="page_profile_edit.php">
             <input type="submit" value="Back">
         </form>
     </body>
