@@ -23,6 +23,15 @@
         </div>
 
         <?php
+            if($UserModel->userIsPublic == 0 and $_SESSION['viewID'] != $_SESSION['userID'])
+            {
+                echo "This profile is private!";
+            }
+            else
+            {
+                //Display the profile as usual
+            }
+
             if($_SESSION['viewID'] == $_SESSION['userID'])
             {
                 echo

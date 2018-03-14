@@ -5,6 +5,9 @@ Nice to add: Global Nav Bar
 
 Next Story:
 
+
+Single quotes everywhere except when echoing strings
+
 -Look up friends:
 -----------------
 (Tim) 

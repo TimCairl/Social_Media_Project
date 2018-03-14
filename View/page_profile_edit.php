@@ -1,6 +1,8 @@
 <?php
     session_start();
 
+    $_SESSION['viewID'] = $_SESSION['userID'];
+
     require_once("../Repository/AppSettingsRepository.php");
     $AppSettingsRepository = new AppSettingsRepository();
     $AppSettingsModel = $AppSettingsRepository->pullAllFromDatabase();
