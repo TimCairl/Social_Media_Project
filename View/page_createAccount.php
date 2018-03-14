@@ -37,14 +37,9 @@
 
   <body class='BG_LGrey'>
     <div class='BG_Blue'><br></div>
-    <div class='BG_Orange'><br></div>
     <div class='BG_DGrey title'>
-      <br>
-      <?php echo $AppSettingsModel->applicationName ?> 
-      <br>
-      <br>
+      <?php echo $AppSettingsModel->applicationName ?> <br>
     </div>
-    <div class='BG_Orange'><br></div>
 
     <div class='createBox'>
       <form action="<?php echo choose_target_page();?>" method="post">
@@ -88,8 +83,11 @@
             <br>
             <input type="submit" value="Create Account">
           </fieldset>
+        
+        <form action="page_front.php">
+          <input type="submit" value="Back">
         </form>
+
       </div>
-    <div class='BG_Orange shortline2'><br></div>
   </body>
 </html>

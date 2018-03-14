@@ -18,14 +18,9 @@
 
 <body class='BG_LGrey'>
     <div class='BG_Blue'> <br> </div>
-    <div class='BG_Orange'> <br> </div>
     <div class='BG_DGrey title'>
-        <br>
-        <?php echo $AppSettingsModel->applicationName ?>
-        <br>
-        <br>
+        <?php echo $AppSettingsModel->applicationName ?> <br>
     </div>
-    <div class='BG_Orange'> <br> </div>
 
     <div class='createBox'>
         <form action="../Services/update_account.php" method="post">
@@ -117,7 +112,6 @@
             <input type="submit" value="Back">
         </form>
     </div>
-    <div class='BG_Orange shortline2'> <br> </div>
 
 </body>
 

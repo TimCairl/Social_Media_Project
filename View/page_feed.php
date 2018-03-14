@@ -1,5 +1,9 @@
 <?php
-session_start();
+  session_start();
+
+  require_once("../Repository/AppSettingsRepository.php");
+  $AppSettingsRepository = new AppSettingsRepository();
+  $AppSettingsModel = $AppSettingsRepository->pullAllFromDatabase();
 
 /*
 This page will:
@@ -10,32 +14,32 @@ This page will:
 --- Log Out          (*something*)
 */
 
-
-
-
-echo "<html>
-<body>
-<br>
-";
-
-echo $_SESSION['username'] . "'s Feed";
-
 ?>
-<br>
-<br>
-<form action="page_editProfile.php">
-  <input type="submit" value="Edit Account">
-</form>
 
-<form action="page_friends.php">
-  <input type="submit" value="Friends">
-</form>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../CSS/styles.css">
+  </head>
+  <body class='BG_LGrey'>
+    <div class='BG_Blue'><br></div>
+    <div class='BG_DGrey title'>
+      <?php echo $AppSettingsModel->applicationName ?> <br>
+    </div>
 
-<form action="page_front.php">
-  <input type="submit" value="Log Out">
-</form>
+    <br>
+    <?php echo $_SESSION['username'] . "'s Feed" ?> <br>
+    <br>
 
+    <form action="page_editProfile.php">
+      <input type="submit" value="Edit Account">
+    </form>
 
+    <form action="page_friends.php">
+      <input type="submit" value="Friends">
+    </form>
 
-</body>
+    <form action="page_front.php">
+      <input type="submit" value="Log Out">
+    </form>
+  </body>
 </html>
