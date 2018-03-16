@@ -9,6 +9,7 @@
     
     $AppSettingsModel = $AppSettingsRepository->pullAllFromDatabase();
     $UserModel = $UserRepository->pullUserFromDatabase($_SESSION['viewID']);
+    $space = " ";
 ?>
 
 <html>
@@ -25,11 +26,29 @@
         <?php
             if($UserModel->userIsPublic == 0 and $_SESSION['viewID'] != $_SESSION['userID'])
             {
-                echo "This profile is private!";
+                echo "<div class='infoBox'>This profile is private!</div><br";
             }
             else
             {
-                //Display the profile as usual
+                echo 
+                "
+                <div class='infoBox'>
+                [Profile Picture]<br>
+                <br>
+                [Name]<br>
+                <div class='infoField'> $UserModel->userFirstName $space $UserModel->userLastName </div>
+                <br>
+                [Job]<br>
+                <div class='infoField'> $UserModel->userJob $space at $space $UserModel->userEmployer </div> 
+                <br>
+                [Interests]<br>
+                <div class='infoField'> $UserModel->userInterest </div>
+                <br>
+                [Bio]<br>
+                <div class='infoField'> $UserModel->userBio </div>
+                </div>
+                <br>
+                ";
             }
 
             if($_SESSION['viewID'] == $_SESSION['userID'])
