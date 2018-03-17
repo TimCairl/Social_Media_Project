@@ -26,7 +26,7 @@
         <?php
             if($UserModel->userIsPublic == 0 and $_SESSION['viewID'] != $_SESSION['userID'])
             {
-                echo "<div class='infoBox'>This profile is private!</div><br";
+                echo "<div class='infoBox'>This profile is private!</div><br>";
             }
             else
             {
