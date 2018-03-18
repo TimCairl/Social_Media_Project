@@ -5,7 +5,7 @@ class PostRepository extends Repository
 {
     function pushPostToDatabase($userID, $subject, $body, $timestamp)
     {
-        $sql = "INSERT INTO posts (postID, userID, subject, body, timestamp) 
+        $sql = "INSERT INTO posts (userID, subject, body, timestamp)
         VALUES ('$userID', '$subject', '$body', '$timestamp')";
     
         $this->connection->query($sql);
@@ -33,9 +33,29 @@ class PostRepository extends Repository
 
     function getPostsWithUserID($userID, $timestamp)
     {
-        //Returns an array of posts after the specified timestamp.   
+        //Returns an array of posts after the specified timestamp. [Timestamp check will be added later]   
+    
+        $PostModelArray = array();
+
+        $sqlcommand = "SELECT postID FROM posts WHERE userID='$userID'";
+        $result = $this->connection->query($sqlcommand);
+
+        if($result->num_rows > 0)
+        {
+            while($row = $result->fetch_array())
+            {
+                $rows[] = $row;
+            }
+
+            foreach($rows as $row)
+            {
+                array_push($PostModelArray, $this->pullPostFromDatabase($row['postID']));
+                //echo $row['postID'];
+                //echo "<br>";
+            }
+        }  
+        //$result->free();
+        return $PostModelArray;
     }
-
-
 }
 ?>

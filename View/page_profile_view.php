@@ -27,6 +27,11 @@
             if($UserModel->userIsPublic == 0 and $_SESSION['viewID'] != $_SESSION['userID'])
             {
                 echo "<div class='infoBox'>This profile is private!</div><br>";
+                
+                echo
+                "<form action='page_friends_view.php'>
+                    <input type='submit' value='Back to Friends'>
+                </form>";
             }
             else
             {
@@ -39,8 +44,11 @@
                 <div class='infoField'> $UserModel->userFirstName $space $UserModel->userLastName </div>
                 <br>
                 [Job]<br>
-                <div class='infoField'> $UserModel->userJob $space at $space $UserModel->userEmployer </div> 
+                <div class='infoField'> $UserModel->userJob $space </div>
                 <br>
+                [Employer]<br>
+                <div class='infoField'> $UserModel->userEmployer </div>
+                <br> 
                 [Interests]<br>
                 <div class='infoField'> $UserModel->userInterest </div>
                 <br>
@@ -49,25 +57,33 @@
                 </div>
                 <br>
                 ";
-            }
 
-            if($_SESSION['viewID'] == $_SESSION['userID'])
-            {
-                echo
-                "<form action='page_profile_edit.php'>
-                    <input type='submit' value='Edit Account'>
-                </form>
-                
-                <form action='page_feed.php'>
-                    <input type='submit' value='Back to Feed'>
-                </form>";
-            }
-            else
-            {
-                echo
-                "<form action='page_friends_view.php'>
-                    <input type='submit' value='Back to Friends'>
-                </form>";
+                if($_SESSION['viewID'] == $_SESSION['userID'])
+                {
+                    echo
+                    "<form action='page_profile_edit.php'>
+                        <input type='submit' value='Edit Account'>
+                    </form>
+                    
+                    <form action='page_profile_posts.php'>
+                        <input type='submit' value='Your Posts'>
+                    </form>
+    
+                    <form action='page_feed.php'>
+                        <input type='submit' value='Back to Feed'>
+                    </form>";
+                }
+                else
+                {
+                    echo
+                    "<form action='page_profile_posts.php'>
+                        <input type='submit' value='$UserModel->userFirstName" . "/s " . "Posts'>
+                    </form>
+
+                    <form action='page_friends_view.php'>
+                        <input type='submit' value='Back to Friends'>
+                    </form>";
+                }
             }
         ?>
 
