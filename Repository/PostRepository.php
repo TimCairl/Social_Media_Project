@@ -34,7 +34,6 @@ class PostRepository extends Repository
     function getPostsWithUserID($userID, $timestamp)
     {
         //Returns an array of posts after the specified timestamp. [Timestamp check will be added later]   
-    
         $PostModelArray = array();
 
         $sqlcommand = "SELECT postID FROM posts WHERE userID='$userID'";
@@ -42,7 +41,7 @@ class PostRepository extends Repository
 
         if($result->num_rows > 0)
         {
-            while($row = $result->fetch_array())
+            while($row = $result->fetch_assoc())
             {
                 $rows[] = $row;
             }
@@ -54,6 +53,7 @@ class PostRepository extends Repository
                 //echo "<br>";
             }
         }  
+
         //$result->free();
         return $PostModelArray;
     }

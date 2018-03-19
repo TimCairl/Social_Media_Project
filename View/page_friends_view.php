@@ -4,6 +4,7 @@
 session_start();
 
 $_SESSION['viewID'] = $_SESSION['userID'];
+$_SESSION['searchResults'] = null;
 
 /*
 Begin Controller Logic
@@ -63,6 +64,10 @@ for ($i = 0; $i < count($UserModel->userFriends, 0); $i++)
 <form action="../Services/serv_friend_remove.php">
   Friend Username to remove: <input type="text" name="username"><br>
   <input type="submit" value="Remove from friend list">
+</form>
+
+<form action="../View/searchBarTest.php">
+  <input type="submit" value="[TEMP] Search 'Bar'">
 </form>
 
 <form action="../View/page_feed.php">

@@ -122,9 +122,34 @@ class UserRepository extends Repository
     function searchUsersByUsername($username)
     {
         //Returns an array of ids associated with similar usernames
-        $result = $this->connection->query("SELECT * FROM users WHERE username LIKE '%".$username."%'");
+        $result = $this->connection->query("SELECT * FROM users WHERE username LIKE '%$username%'");
         //SELECT * FROM `users` WHERE username LIKE '%t%'
         $usersFound = array();
+        if($result->num_rows > 0)
+        {
+            /*
+            while($row = $result->fetch_assoc())
+            {
+                $rows[] = $row;
+            }
+            foreach($rows as $row)
+            {
+                if($row['isPublic'] == 1 and $row['userId'] != $_SESSION['userID'])
+                    array_push($usersFound, $this->pullUserFromDatabase($row['userId']));
+            }
+            return $usersFound;
+            */
+            for ($i = $result->num_rows; $i > 0; $i--)
+            {
+                $row = $result->fetch_assoc();
+                array_push($usersFound, $row);
+            }
+
+            return $usersFound;
+        }
+        return null;
+        
+        /*
         if($result->num_rows > 0)
         {
             for ($i = 0; $i < count($result); $i++)
@@ -139,6 +164,8 @@ class UserRepository extends Repository
             //no users found
             return null;
         }
+        */
+
     }
 
     function searchUsersByName()

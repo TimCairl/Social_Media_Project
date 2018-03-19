@@ -18,3 +18,17 @@ Search Bar to type in the name [Auto-Search +15 points]
 (Aleks) 
 Load specific user profile
 --- Load post from user
+
+
+
+/\/\/\/\/\
+|Sprint 3|
+\/\/\/\/\/
+
+Make Posts:
+-----------
+o Create table for Posts
+o UI for posts
+--o Input box
+--o submit
+
