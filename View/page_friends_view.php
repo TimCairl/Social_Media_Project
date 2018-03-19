@@ -3,6 +3,7 @@
 <?php
 session_start();
 
+$_SESSION['viewID'] = $_SESSION['userID'];
 
 /*
 Begin Controller Logic
@@ -19,13 +20,35 @@ $UserModel->userFriends = $UserRepository->fetchFriends($_SESSION['userID']);
 /*
 End Controller Logic
 */
+
+function goToProfile($id)
+{
+  $_SESSION['viewID'] = $id;
+  header('Location: '.'../View/page_profile_view.php');
+}
+
+
 echo "<title>".$AppSettingsModel->applicationName."</title>";
 
 for ($i = 0; $i < count($UserModel->userFriends, 0); $i++)
 {
+    $Temp = $UserModel->userFriends[$i];
+    if($Temp == null)
+      break;
     $Temp = $UserRepository->pullUserFromDatabase($UserModel->userFriends[$i]);
-    echo $Temp->username;
-    echo "<br>";
+    
+    // Change this to a button... or not. I tried to and it didn't work.
+    echo
+    //"<button type='button' formaction='../Services/serv_friend_goTo.php' 
+    //  formmethod='post' value='$Temp->userID'>$Temp->username</button>";
+    
+    "<form action='../Services/serv_friend_goTo.php' method='post'>
+        <input name='friendID' value='$Temp->userID' size='1' readonly hidden>
+        <input type='submit' value='$Temp->username'>
+    </form>";
+
+    //echo $Temp->username;
+    //echo "<br>";
 }
 ?>
 

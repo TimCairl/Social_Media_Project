@@ -99,3 +99,33 @@
     text-align: left;
     padding-left: 5px;
 }
+
+.infoBox
+{
+  color: #E5DCC5;
+  font-size: 125%;
+  width: 500px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-left: 20px solid #AF5B26;
+  border-right: 20px solid #AF5B26;
+  border-bottom: 10px solid #AF5B26;
+  background-color: #2D2D2A;
+}
+
+.infoField
+{
+  color: black;
+  width: 460px;
+  background-color: #E5DCC5;
+  padding: 5px;
+}
+
+.postBox
+{
+  color: black;
+  border: 2px solid lightgrey;
+  width: 500px;
+}
