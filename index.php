@@ -5,6 +5,8 @@
 //put controller logic here
 require_once("Repository/AppSettingsRepository.php");
 require_once("Repository/UserRepository.php");
+session_start();
+$_SESSION['searchResults'] = null;
 
 $AppSettingsRepository = new AppSettingsRepository();
 $UserRepository = new UserRepository();

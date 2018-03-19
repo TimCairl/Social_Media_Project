@@ -118,6 +118,33 @@ class UserRepository extends Repository
             return null;
         }
     }
+
+    function searchUsersByUsername($username)
+    {
+        //Returns an array of ids associated with similar usernames
+        $result = $this->connection->query("SELECT * FROM users WHERE username LIKE '%".$username."%'");
+        //SELECT * FROM `users` WHERE username LIKE '%t%'
+        $usersFound = array();
+        if($result->num_rows > 0)
+        {
+            for ($i = 0; $i < count($result); $i++)
+            {
+                $row = $result->fetch_assoc();
+                array_push($usersFound, $row['userId']);
+            }
+            return $usersFound;
+        }
+        else
+        {
+            //no users found
+            return null;
+        }
+    }
+
+    function searchUsersByName()
+    {
+        //searches for users in the database table users where their firstname or last name are like the provided text
+    }
     
     function changePassword($CurrentUserID, $NewPassword)
     {

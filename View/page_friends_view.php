@@ -14,8 +14,8 @@ $AppSettingsRepository = new AppSettingsRepository();
 $UserRepository = new UserRepository();
 
 $AppSettingsModel = $AppSettingsRepository->pullAllFromDatabase();
-$UserModel = $UserRepository->pullUserFromDatabase($_SESSION['userID']);//magic number 1 for example
-$UserModel->userFriends = $UserRepository->fetchFriends($_SESSION['userID']);//magic number 1 for example
+$UserModel = $UserRepository->pullUserFromDatabase($_SESSION['userID']);
+$UserModel->userFriends = $UserRepository->fetchFriends($_SESSION['userID']);
 /*
 End Controller Logic
 */
