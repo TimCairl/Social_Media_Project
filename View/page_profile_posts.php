@@ -6,6 +6,7 @@
     require_once("../Repository/PostRepository.php");
     require_once("../Repository/CommentRepository.php");
 
+    $UserRepo = new UserRepository();
     $PostRepo = new PostRepository();
     $CommentRepo = new CommentRepository();
 
@@ -33,9 +34,24 @@
 
             if(sizeof($PostModelArray) > 0)
             {
+                $curID = -1;
+                $curUserModel = -1;
                 foreach($PostModelArray as $PostModel)
                 {
-                    echo "$PostModel->postUserID $PostModel->postSubject $PostModel->postBody ($PostModel->postTimestamp)<br>";
+                    if($PostModel->postUserID != $curID)
+                    {
+                        $curID = $PostModel->postUserID;
+                        $curUserModel = $UserRepo->pullUserFromDatabase($curID);
+                    }
+
+                    echo
+                    "<div class='postBox'>
+                        $curUserModel->userFirstName $curUserModel->userLastName ($PostModel->postTimestamp)<br>
+                        $PostModel->postSubject<br>
+                        <br>
+                        $PostModel->postBody <br>
+                        <br>
+                    </div>";
                 }
             }
 

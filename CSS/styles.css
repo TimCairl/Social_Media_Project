@@ -122,3 +122,10 @@
   background-color: #E5DCC5;
   padding: 5px;
 }
+
+.postBox
+{
+  color: black;
+  border: 2px solid lightgrey;
+  width: 500px;
+}
