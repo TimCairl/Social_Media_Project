@@ -12,6 +12,6 @@ for ($i = 0; $i < count($usersFound); $i++)
 }
 $_SESSION['searchResults'] = $searchResults;
 
-header('Location: '.'../View/searchBarTest.php');
+header('Location: '.'../View/page_friends_view.php');
 die();
 ?>

@@ -4,7 +4,6 @@
 session_start();
 
 $_SESSION['viewID'] = $_SESSION['userID'];
-$_SESSION['searchResults'] = null;
 
 /*
 Begin Controller Logic
@@ -18,16 +17,49 @@ $UserRepository = new UserRepository();
 $AppSettingsModel = $AppSettingsRepository->pullAllFromDatabase();
 $UserModel = $UserRepository->pullUserFromDatabase($_SESSION['userID']);
 $UserModel->userFriends = $UserRepository->fetchFriends($_SESSION['userID']);
+
+
+echo 
+"<div id='search'>
+<form action='../Services/serv_account_search.php'>
+    Search for User by Username: <input type='text' name='username'><br>
+<input type='submit' value='Search'>
+</form>
+";
+
+if ($_SESSION['searchResults'] != null)
+{
+    for ($i = 0; $i < count($_SESSION['searchResults']); $i++)
+    {
+        if($_SESSION['searchResults'][$i]['isPublic'] == 0 or $_SESSION['searchResults'][$i]['userId'] == $_SESSION['userID'])
+            continue;
+
+        $fName = $_SESSION['searchResults'][$i]['firstName'];
+        $lName = $_SESSION['searchResults'][$i]['lastName'];
+        $id = $_SESSION['searchResults'][$i]['userId'];
+
+        echo
+        "<form>
+          $fName $lName
+          <button type='submit' name='friendID' formaction='../Services/serv_friend_goTo.php' formmethod='post' value='$id'>View Profile</button>
+          <button type='submit' name='friendID' formaction='../Services/serv_friend_add.php' formmethod='post' value='$id'>Add Friend</button>
+        </form>";
+
+    //    echo $_SESSION['searchResults'][$i];
+    //    echo "<br>";
+    }
+}
+
+echo
+"
+</div>
+==========================================================================================================
+";
+
+
 /*
 End Controller Logic
 */
-
-function goToProfile($id)
-{
-  $_SESSION['viewID'] = $id;
-  header('Location: '.'../View/page_profile_view.php');
-}
-
 
 echo "<title>".$AppSettingsModel->applicationName."</title>";
 
@@ -37,19 +69,15 @@ for ($i = 0; $i < count($UserModel->userFriends, 0); $i++)
     if($Temp == null)
       break;
     $Temp = $UserRepository->pullUserFromDatabase($UserModel->userFriends[$i]);
-    
-    // Change this to a button... or not. I tried to and it didn't work.
+
     echo
-    //"<button type='button' formaction='../Services/serv_friend_goTo.php' 
-    //  formmethod='post' value='$Temp->userID'>$Temp->username</button>";
-    
-    "<form action='../Services/serv_friend_goTo.php' method='post'>
-        <input name='friendID' value='$Temp->userID' size='1' readonly hidden>
-        <input type='submit' value='$Temp->username'>
+    "<form>
+        $Temp->userFirstName $Temp->userLastName
+        <button type='submit' name='friendID' formaction='../Services/serv_friend_goTo.php' formmethod='post' value='$Temp->userID'>View Profile</button>
+        <button type='submit' name='friendID' formaction='../Services/serv_friend_remove.php' formmethod='post' value='$Temp->userID'>Remove Friend</button>
     </form>";
 
-    //echo $Temp->username;
-    //echo "<br>";
+    //echo '<a href="../Services/serv_friend_goTo.php?friendID='.$Temp->userID.'">'.$Temp->username.'</a>';
 }
 ?>
 
@@ -66,12 +94,34 @@ for ($i = 0; $i < count($UserModel->userFriends, 0); $i++)
   <input type="submit" value="Remove from friend list">
 </form>
 
-<form action="../View/searchBarTest.php">
+<form action="../View/page_friends_search.php">
   <input type="submit" value="[TEMP] Search 'Bar'">
 </form>
 
 <form action="../View/page_feed.php">
   <input type="submit" value="Back to Feed">
 </form>
+
+<?php
+/*
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+
+  function goToFriend(friendID)
+  {
+    $.ajax(
+      {
+        type: "POST",
+        url: '/Services/serv_friend_goTo.php',
+        data: 'friendID='+friendID,
+        success: function(res)
+        {
+          window.location="page_profile_view.php";
+        }
+      });
+  }
+
+</script>
+*/
+?>
 
 </html>
