@@ -1,9 +1,12 @@
-
 Add comments everywhere!!!
 
-page_account_reactivate
-page_account_suspend
+File Naming Conventions:
+    File Name Example: file_name_example.ext
 
-serv_friend_add
+Table Naming Conventions:
+    Table Name Example: table_name
+    Column Name Example: columnName
+    Value Example: valueExample
 
-repo_
+Code Naming Conventions:
+    Function Name Example: functionName
