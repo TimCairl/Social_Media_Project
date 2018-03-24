@@ -129,3 +129,24 @@
   border: 2px solid lightgrey;
   width: 500px;
 }
+
+.profileInfo
+{
+  float: left;
+  width: 40%;
+  background-color: white;
+}
+
+.profileButtons
+{
+  float: left;
+  width: 40%;
+  background-color: blue;
+}
+
+.profilePosts
+{
+  float: left;
+  width: 60%;
+  background-color: purple;
+}

@@ -61,7 +61,6 @@ echo
 End Controller Logic
 */
 
-echo "<title>".$AppSettingsModel->applicationName."</title>";
 
 for ($i = 0; $i < count($UserModel->userFriends, 0); $i++)
 {
@@ -81,6 +80,8 @@ for ($i = 0; $i < count($UserModel->userFriends, 0); $i++)
 }
 ?>
 
+<?php
+/*
 <br><br><br>
 <form action="../Services/serv_friend_add.php">
   Friend Username to add: <input type="text" name="username"><br>
@@ -93,10 +94,8 @@ for ($i = 0; $i < count($UserModel->userFriends, 0); $i++)
   Friend Username to remove: <input type="text" name="username"><br>
   <input type="submit" value="Remove from friend list">
 </form>
-
-<form action="../View/page_friends_search.php">
-  <input type="submit" value="[TEMP] Search 'Bar'">
-</form>
+*/
+?>
 
 <form action="../View/page_feed.php">
   <input type="submit" value="Back to Feed">
