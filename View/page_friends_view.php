@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html>
 <?php
 session_start();
 
@@ -17,8 +16,11 @@ $UserRepository = new UserRepository();
 $AppSettingsModel = $AppSettingsRepository->pullAllFromDatabase();
 $UserModel = $UserRepository->pullUserFromDatabase($_SESSION['userID']);
 $UserModel->userFriends = $UserRepository->fetchFriends($_SESSION['userID']);
+?>
 
+<html>
 
+<?php
 echo 
 "<div id='search'>
 <form action='../Services/serv_account_search.php'>

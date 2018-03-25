@@ -1,5 +1,8 @@
+<!DOCTYPE html>
 <?php
   session_start();
+
+  $_SESSION['viewID'] = $_SESSION['userID'];
 
   require_once("../Repository/AppSettingsRepository.php");
   require_once("../Repository/UserRepository.php");
@@ -27,6 +30,8 @@
   $timestamp = time() - 7200; // Current Time - 2 Hours | Will add a setting later
   $PostModelArray = $PostRepository->getFeed($UserModel->userFriends, $timestamp);
 
+  //'<a href="../Services/serv_friend_goTo.php?friendID='.$Temp->userID.'">'.$Temp->username.'</a>';
+
 ?>
 
 <html>
@@ -34,55 +39,46 @@
     <link rel="stylesheet" type="text/css" href="../CSS/styles.css">
   </head>
   <body class='BG_LGrey'>
-    <div class='BG_Blue'><br></div>
     <div class='BG_DGrey title'>
       <?php echo $AppSettingsModel->applicationName ?> <br>
     </div>
+    
+    <div class='navBar'>
+      <a href="../Services/serv_account_goTo.php">Profile</a>
+      <a href="page_friends_view.php">Friends</a>
+      <a href="page_feed.php">Feed</a>
+      <a href="page_front.php" style="float:right">Log Out</a>
+    </div>
+    <div class='titleBottom'></div>
 
-    <br>
-    <?php echo $_SESSION['username'] . "'s Feed" ?> <br>
-    <br>
-
+    <div class='profilePosts'>
     <?php
-
-    $size = sizeof($PostModelArray);
-    if($size > 0)
-    {
-      $curID = -1;
-      $curUserModel = -1;
-      //foreach($PostModelArray as $PostModel)
-      for($i = ($size - 1); $i > -1; $i--)
+      $size = sizeof($PostModelArray);
+      if($size > 0)
       {
-        $PostModel = $PostModelArray[$i];
-        if($PostModel->postUserID != $curID)
+        $curID = -1;
+        $curUserModel = -1;
+        //foreach($PostModelArray as $PostModel)
+        for($i = ($size - 1); $i > -1; $i--)
         {
-          $curID = $PostModel->postUserID;
-          $curUserModel = $UserRepository->pullUserFromDatabase($curID);
-        }
+          $PostModel = $PostModelArray[$i];
+          if($PostModel->postUserID != $curID)
+          {
+            $curID = $PostModel->postUserID;
+            $curUserModel = $UserRepository->pullUserFromDatabase($curID);
+          }
 
-        echo
-        "<div class='postBox'>
-            $curUserModel->userFirstName $curUserModel->userLastName ($PostModel->postTimestamp)<br>
-            $PostModel->postSubject<br>
+          echo
+          "<div class='postBox'>
+            $curUserModel->userFirstName $curUserModel->userLastName<br>
+            $PostModel->postSubject ($PostModel->postTimestamp)<br>
             <br>
             $PostModel->postBody <br>
             <br>
-        </div>";
+          </div>";
+        }
       }
-    }
-
     ?>
-
-    <form action="page_profile_view.php">
-      <input type="submit" value="My Profile">
-    </form>
-
-    <form action="page_friends_view.php">
-      <input type="submit" value="Friends">
-    </form>
-
-    <form action="page_front.php">
-      <input type="submit" value="Log Out">
-    </form>
+    </div>
   </body>
 </html>

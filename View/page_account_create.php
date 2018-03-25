@@ -36,7 +36,6 @@
   </head>
 
   <body class='BG_LGrey'>
-    <div class='BG_Blue'><br></div>
     <div class='BG_DGrey title'>
       <?php echo $AppSettingsModel->applicationName ?> <br>
     </div>
@@ -46,41 +45,29 @@
         <fieldset class='TXT_White createTextField'>
           <legend>User Information:</legend>
     
-            Username:
-            <br>
-            <input type="text" name="username" placeholder="Username">
-            <br>
+            Username:<br>
+            <input type="text" name="username" placeholder="Username"><br>
             <br>
 
-            Password:
-            <br>
-            <input type="password" name="password" placeholder="Password"> 
-            <br>
-            <input type="password" name="con_password" placeholder="Confirm Password">
-            <br>
+            Password:<br>
+            <input type="password" name="password" placeholder="Password"> <br>
+            <input type="password" name="con_password" placeholder="Confirm Password"><br>
             <br>
 
-            Name:
-            <br>
+            Name:<br>
             <input type="text" name="firstname" placeholder="First"> 
-            <input type="text" name="lastname" placeholder="Last">
+            <input type="text" name="lastname" placeholder="Last"><br>
             <br>
 
-            <br>
-            Date-of-Birth:
-            <br>
-            <input type="date" name="bday" min="1900-01-01">
-            <br>
+            Date-of-Birth:<br>
+            <input type="date" name="bday" min="1900-01-01"><br>
             <br>
     
-            Privacy Setting:
-            <br>
+            Privacy Setting:<br>
             <form>
               <input type="radio" name="privacy" value="0"> Private<br>
               <input type="radio" name="privacy" value="1" checked> Public<br>  
-            </form> 
-    
-            <br>
+            </form><br>
             <input type="submit" value="Create Account">
           </fieldset>
         

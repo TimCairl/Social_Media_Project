@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
     session_start();
 
@@ -29,10 +30,17 @@
     </head>
 
     <body class='BG_LGrey'>
-        <div class='BG_Blue'><br></div>
         <div class='BG_DGrey title'>
             <?php echo $AppSettingsModel->applicationName ?> <br>
         </div>
+
+        <div class='navBar'>
+            <a href="../Services/serv_account_goTo.php">Profile</a>
+            <a href="page_friends_view.php">Friends</a>
+            <a href="page_feed.php">Feed</a>
+            <a href="page_front.php" style="float:right">Log Out</a>
+        </div>
+        <div class='titleBottom'></div>
 
         <?php
             // Echo info division
@@ -49,23 +57,29 @@
             {
                 echo 
                 "
-                <div class='profileInfo'>
-                [Profile Picture]<br>
+                <div class='infoBox'>
+                [Profile Picture Goes Here]<br>
                 <br>
-                [Name]<br>
+
+                <div class='infoTitle'>Name:
                 <div class='infoField'> $UserModel->userFirstName $space $UserModel->userLastName </div>
-                <br>
-                [Job]<br>
+                </div><br>
+
+                <div class='infoTitle'>Job:
                 <div class='infoField'> $UserModel->userJob $space </div>
-                <br>
-                [Employer]<br>
+                </div><br>
+
+                <div class='infoTitle'>Employer:<br>
                 <div class='infoField'> $UserModel->userEmployer </div>
-                <br> 
-                [Interests]<br>
+                </div><br>
+
+                <div class='infoTitle'>Interests:<br>
                 <div class='infoField'> $UserModel->userInterest </div>
-                <br>
-                [Bio]<br>
-                <div class='infoField'> $UserModel->userBio </div>";
+                </div><br>
+
+                <div class='infoTitle'>Bio:<br>
+                <div class='infoField'> $UserModel->userBio </div>
+                </div><br>";
 
                 // Echo navigation buttons and close the info division
                 if($_SESSION['viewID'] == $_SESSION['userID'])
@@ -73,10 +87,6 @@
                     echo
                     "<form action='page_profile_edit.php'>
                         <input type='submit' value='Edit Account'>
-                    </form>
-    
-                    <form action='page_feed.php'>
-                        <input type='submit' value='Back to Feed'>
                     </form>
                     </div>";
                 }
@@ -95,10 +105,11 @@
                 if($_SESSION['viewID'] == $_SESSION['userID'])
                 {
                     echo
-                    "<form action='../Services/serv_post_create.php' method='post'>
+                    "<form class='postBar' action='../Services/serv_post_create.php' method='post'>
                         <input type='text' name='subject' placeholder='Subject'>
                         <input type='text' name='body' placeholder='Body'>
                         <input type='submit' value='Make Post'>
+                    <br><br>
                     </form>";
                 }
     
@@ -119,8 +130,8 @@
     
                         echo
                         "<div class='postBox'>
-                            $curUserModel->userFirstName $curUserModel->userLastName ($PostModel->postTimestamp)<br>
-                            $PostModel->postSubject<br>
+                            $curUserModel->userFirstName $curUserModel->userLastName<br>
+                            $PostModel->postSubject  ($PostModel->postTimestamp)<br>
                             <br>
                             $PostModel->postBody <br>
                             <br>
