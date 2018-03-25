@@ -13,6 +13,12 @@
     
     $AppSettingsModel = $AppSettingsRepository->pullAllFromDatabase();
     $UserModel = $UserRepository->pullUserFromDatabase($_SESSION['viewID']);
+
+    // time() produces a timestamp
+    // use strtotime($date) to convert a date from the table to a timestamp
+    // date('Y/m/d H:i:s', $timestamp) to get a properly formatted date
+    // subtract a number of seconds from time()
+
     $PostModelArray = $PostRepository->getPostsWithUserID($_SESSION['viewID'], null);
     $space = " ";
 ?>

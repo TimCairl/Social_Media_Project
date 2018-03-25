@@ -1,6 +1,12 @@
 <?php
 require_once(realpath($_SERVER["DOCUMENT_ROOT"])."/Social_Media_Project/Repository/Repository.php");
 require_once(realpath($_SERVER["DOCUMENT_ROOT"])."/Social_Media_Project/Model/PostModel.php");
+
+function sortPostsByTimestamp($PostModelA, $PostModelB)
+{
+    return strtotime($PostModelA->postTimestamp) - strtotime($PostModelB->postTimestamp);
+}
+
 class PostRepository extends Repository
 {
     function pushPostToDatabase($userID, $subject, $body, $timestamp)
@@ -31,9 +37,11 @@ class PostRepository extends Repository
         return $PostModel;
     }
 
+    /**
+     * Returns an array of posts after the specified timestamp. 
+     */
     function getPostsWithUserID($userID, $timestamp)
     {
-        //Returns an array of posts after the specified timestamp. [Timestamp check will be added later]   
         $PostModelArray = array();
 
         $sqlcommand = "SELECT postID FROM posts WHERE userID='$userID'";
@@ -48,7 +56,17 @@ class PostRepository extends Repository
 
             foreach($rows as $row)
             {
-                array_push($PostModelArray, $this->pullPostFromDatabase($row['postID']));
+                $PostModel =  $this->pullPostFromDatabase($row['postID']);
+                if($timestamp == null)
+                    array_push($PostModelArray, $PostModel);
+                else
+                {
+                    $PostDate = strtotime($PostModel->postTimestamp);
+                    if($PostDate > $timestamp)
+                    {
+                        array_push($PostModelArray, $PostModel);
+                    }
+                }
                 //echo $row['postID'];
                 //echo "<br>";
             }
@@ -56,6 +74,26 @@ class PostRepository extends Repository
 
         //$result->free();
         return $PostModelArray;
+    }
+
+    function getFeed($friendIDArray, $timestamp)
+    {
+        $PostModelMasterArray = array();
+        foreach($friendIDArray as $friendID)
+        {
+            $PostModelArray = $this->getPostsWithUserID($friendID, $timestamp);
+            if(sizeof($PostModelArray) > 0)
+            {
+                foreach($PostModelArray as $PostModel)
+                {
+                    array_push($PostModelMasterArray, $PostModel);
+                }
+            }
+        }
+
+        usort($PostModelMasterArray, "sortPostsByTimestamp");
+
+        return $PostModelMasterArray;
     }
 }
 ?>
