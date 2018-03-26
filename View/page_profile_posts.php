@@ -9,7 +9,9 @@
     $UserRepo = new UserRepository();
     $PostRepo = new PostRepository();
     $CommentRepo = new CommentRepository();
+    $AppSettingsRepository = new AppSettingsRepository();
 
+    $AppSettings = $AppSettingsRepository->pullAllFromDatabase();
     $PostModelArray = $PostRepo->getPostsWithUserID($_SESSION['viewID'], null);
     $space = " ";
     
@@ -20,7 +22,11 @@
         <link rel="stylesheet" type="text/css" href="../CSS/styles.css">
     </head>
 
-    <body>
+    <body class='BG_LGrey'>
+        <div class='BG_Blue'><br></div>
+        <div class='BG_DGrey title'>
+        <?php echo $AppSettings->applicationName ?> <br>
+        </div>
         <?php
             if($_SESSION['viewID'] == $_SESSION['userID'])
             {

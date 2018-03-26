@@ -10,3 +10,4 @@ Table Naming Conventions:
 
 Code Naming Conventions:
     Function Name Example: functionName
+    Class Attributes Name Example: classAttributesName

@@ -3,12 +3,15 @@
 
     require_once("../Repository/AppSettingsRepository.php");
     require_once("../Repository/UserRepository.php");
+    require_once("../Repository/PictureRepository.php");
     
     $AppSettingsRepository = new AppSettingsRepository();
     $UserRepository = new UserRepository();
+    $PictureRepository = new PictureRepository();
     
-    $AppSettingsModel = $AppSettingsRepository->pullAllFromDatabase();
-    $UserModel = $UserRepository->pullUserFromDatabase($_SESSION['viewID']);
+    $AppSettings = $AppSettingsRepository->pullAllFromDatabase();
+    $User = $UserRepository->pullUserFromDatabase($_SESSION['viewID']);
+    $Picture = $PictureRepository->pullImageDataFromDatabase($User->userProfilePictureId);
     $space = " ";
 ?>
 
@@ -20,11 +23,11 @@
     <body class='BG_LGrey'>
         <div class='BG_Blue'><br></div>
         <div class='BG_DGrey title'>
-            <?php echo $AppSettingsModel->applicationName ?> <br>
+            <?php echo $AppSettings->applicationName ?> <br>
         </div>
 
         <?php
-            if($UserModel->userIsPublic == 0 and $_SESSION['viewID'] != $_SESSION['userID'])
+            if($User->userIsPublic == 0 and $_SESSION['viewID'] != $_SESSION['userID'])
             {
                 echo "<div class='infoBox'>This profile is private!</div><br>";
                 
@@ -39,21 +42,22 @@
                 "
                 <div class='infoBox'>
                 [Profile Picture]<br>
+                <img src='$Picture->pictureLink' alt='$Picture->pictureAltText' width='250' height='250'>
                 <br>
                 [Name]<br>
-                <div class='infoField'> $UserModel->userFirstName $space $UserModel->userLastName </div>
+                <div class='infoField'> $User->userFirstName $space $User->userLastName </div>
                 <br>
                 [Job]<br>
-                <div class='infoField'> $UserModel->userJob $space </div>
+                <div class='infoField'> $User->userJob $space </div>
                 <br>
                 [Employer]<br>
-                <div class='infoField'> $UserModel->userEmployer </div>
+                <div class='infoField'> $User->userEmployer </div>
                 <br> 
                 [Interests]<br>
-                <div class='infoField'> $UserModel->userInterest </div>
+                <div class='infoField'> $User->userInterest </div>
                 <br>
                 [Bio]<br>
-                <div class='infoField'> $UserModel->userBio </div>
+                <div class='infoField'> $User->userBio </div>
                 </div>
                 <br>
                 ";
@@ -77,7 +81,7 @@
                 {
                     echo
                     "<form action='page_profile_posts.php'>
-                        <input type='submit' value='$UserModel->userFirstName" . "/s " . "Posts'>
+                        <input type='submit' value='$User->userFirstName" . "/s " . "Posts'>
                     </form>
 
                     <form action='page_friends_view.php'>

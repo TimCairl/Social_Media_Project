@@ -5,7 +5,7 @@ class CommentRepository extends Repository
 {
     function pushCommentToDatabase($postID, $userID, $body, $timestamp)
     {
-        $sql = "INSERT INTO comments (commentID, postID, userID, body, timestamp) 
+        $sql = "INSERT INTO comments (commentId, postId, userId, body, timestamp) 
         VALUES ('$postID', '$userID', '$body', '$timestamp')";
     
         $this->connection->query($sql);
@@ -17,15 +17,15 @@ class CommentRepository extends Repository
 
         $CommentModel = new CommentModel();
 
-        $sqlcommand = "SELECT * FROM comments WHERE commentID='$commentID'";
+        $sqlcommand = "SELECT * FROM comments WHERE commentId='$commentID'";
         $result = $this->connection->query($sqlcommand);
 
         if($result->num_rows > 0)
         {
             $row = $result->fetch_assoc();
-            $CommentModel->commentID = $row['commentID'];
-            $CommentModel->commentPostID = $row['postID'];
-            $CommentModel->commentUserID = $row['userID'];
+            $CommentModel->commentID = $row['commentId'];
+            $CommentModel->commentPostID = $row['postId'];
+            $CommentModel->commentUserID = $row['userId'];
             $CommentModel->commentBody = $row['body'];
             $CommentModel->commentTimestamp = $row['timestamp'];
         }

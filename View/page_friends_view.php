@@ -14,19 +14,27 @@ require_once("../Repository/UserRepository.php");
 $AppSettingsRepository = new AppSettingsRepository();
 $UserRepository = new UserRepository();
 
-$AppSettingsModel = $AppSettingsRepository->pullAllFromDatabase();
+$AppSettings = $AppSettingsRepository->pullAllFromDatabase();
 $UserModel = $UserRepository->pullUserFromDatabase($_SESSION['userID']);
 $UserModel->userFriends = $UserRepository->fetchFriends($_SESSION['userID']);
+?>
 
+<head>
+        <link rel="stylesheet" type="text/css" href="../CSS/styles.css">
+    </head>
 
-echo 
-"<div id='search'>
+    <body class='BG_LGrey'>
+        <div class='BG_Blue'><br></div>
+        <div class='BG_DGrey title'>
+        <?php echo $AppSettings->applicationName ?> <br>
+        </div>
+
+<div id='search'>
 <form action='../Services/serv_account_search.php'>
     Search for User by Username: <input type='text' name='username'><br>
 <input type='submit' value='Search'>
 </form>
-";
-
+<?php
 if ($_SESSION['searchResults'] != null)
 {
     for ($i = 0; $i < count($_SESSION['searchResults']); $i++)
@@ -61,7 +69,7 @@ echo
 End Controller Logic
 */
 
-echo "<title>".$AppSettingsModel->applicationName."</title>";
+echo "<title>".$AppSettings->applicationName."</title>";
 
 for ($i = 0; $i < count($UserModel->userFriends, 0); $i++)
 {
@@ -101,6 +109,7 @@ for ($i = 0; $i < count($UserModel->userFriends, 0); $i++)
 <form action="../View/page_feed.php">
   <input type="submit" value="Back to Feed">
 </form>
+</body>
 
 <?php
 /*

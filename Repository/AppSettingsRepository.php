@@ -13,14 +13,14 @@ class AppSettingsRepository extends Repository
 
         
         //FIX ME TO SUPPORT MULTIPLE SETTING VALUES AND KEYS
-        $sqlcommand = "SELECT setting_value FROM applicationsettings WHERE setting_key='ApplicationName'";
+        $sqlcommand = "SELECT settingValue FROM application_settings WHERE settingKey='applicationName'";
         //do some research on sql commands and how they work ^^^^^^
         
         $result = $this->connection->query($sqlcommand);
         if($result->num_rows > 0)
         {
             $row = $result->fetch_assoc();
-            $appName = $row['setting_value'];
+            $appName = $row['settingValue'];
         }
         $ApplicationSettingsModel->applicationName = $appName;
         //FIX ME TO SUPPORT MULTIPLE SETTING VALUES AND KEYS

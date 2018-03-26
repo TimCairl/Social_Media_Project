@@ -7,11 +7,19 @@
     $AppSettingsRepository = new AppSettingsRepository();
     $UserRepository = new UserRepository();
 
-    $AppSettingsModel = $AppSettingsRepository->pullAllFromDatabase();
+    $AppSettings = $AppSettingsRepository->pullAllFromDatabase();
     $UserModel = $UserRepository->pullUserFromDatabase($_SESSION['userID']);
     $UserModel->userFriends = $UserRepository->fetchFriends($_SESSION['userID']);
 ?>
+<head>
+        <link rel="stylesheet" type="text/css" href="../CSS/styles.css">
+    </head>
 
+    <body class='BG_LGrey'>
+        <div class='BG_Blue'><br></div>
+        <div class='BG_DGrey title'>
+        <?php echo $AppSettings->applicationName ?> <br>
+        </div>
 
 <form action="../Services/serv_account_search.php">
     Search for User by Username: <input type="text" name="username"><br>

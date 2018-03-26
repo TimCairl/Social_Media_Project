@@ -73,14 +73,14 @@ class UserRepository extends Repository
             $UserModel->userPassword = $row['password'];
             $UserModel->userFirstName = $row['firstName'];
             $UserModel->userLastName = $row['lastName'];
-            $UserModel->userDOB = $row['dateOfBirth'];
+            $UserModel->userDob = $row['dateOfBirth'];
             $UserModel->userBio = $row['bio'];
             $UserModel->userInterest = $row['interest'];
             $UserModel->userJob = $row['job'];
             $UserModel->userEmployer = $row['employer'];
             $UserModel->userIsSuspended = $row['isSuspended'];
             $UserModel->userIsPublic = $row['isPublic'];
-            $UserModel->userProfilePicture = $row['profilePicture'];
+            $UserModel->userProfilePictureId = $row['profilePictureId'];
         }
 
         return $UserModel;
@@ -178,7 +178,7 @@ class UserRepository extends Repository
         //add verification later
 
         //Modifies the password of a given user by ID
-        $this->connection->query("UPDATE users SET password='$NewPassword' WHERE userID=$CurrentUserID");
+        $this->connection->query("UPDATE users SET password='$NewPassword' WHERE userId=$CurrentUserID");
     }
 
     // I made this because the update_user_data wouldn't update the isSuspended field
@@ -186,7 +186,7 @@ class UserRepository extends Repository
     {
         if($zeroORone == 0 or $zeroORone == 1)
         {
-            $this->connection->query("UPDATE users SET isSuspended='$zeroORone' WHERE userID=$CurrentUserID");
+            $this->connection->query("UPDATE users SET isSuspended='$zeroORone' WHERE userId=$CurrentUserID");
         }
     }
 

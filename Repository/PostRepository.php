@@ -5,7 +5,7 @@ class PostRepository extends Repository
 {
     function pushPostToDatabase($userID, $subject, $body, $timestamp)
     {
-        $sql = "INSERT INTO posts (userID, subject, body, timestamp)
+        $sql = "INSERT INTO posts (userId, subject, body, timestamp)
         VALUES ('$userID', '$subject', '$body', '$timestamp')";
     
         $this->connection->query($sql);
@@ -15,14 +15,14 @@ class PostRepository extends Repository
     {
         $PostModel = new PostModel();
 
-        $sqlcommand = "SELECT * FROM posts WHERE postID='$postID'";
+        $sqlcommand = "SELECT * FROM posts WHERE postId='$postID'";
         $result = $this->connection->query($sqlcommand);
 
         if($result->num_rows > 0)
         {
             $row = $result->fetch_assoc();
-            $PostModel->postID = $row['postID'];
-            $PostModel->postUserID = $row['userID'];
+            $PostModel->postID = $row['postId'];
+            $PostModel->postUserID = $row['userId'];
             $PostModel->postSubject = $row['subject'];
             $PostModel->postBody = $row['body'];
             $PostModel->postTimestamp = $row['timestamp'];
@@ -36,7 +36,7 @@ class PostRepository extends Repository
         //Returns an array of posts after the specified timestamp. [Timestamp check will be added later]   
         $PostModelArray = array();
 
-        $sqlcommand = "SELECT postID FROM posts WHERE userID='$userID'";
+        $sqlcommand = "SELECT postId FROM posts WHERE userId='$userID'";
         $result = $this->connection->query($sqlcommand);
 
         if($result->num_rows > 0)
@@ -48,8 +48,8 @@ class PostRepository extends Repository
 
             foreach($rows as $row)
             {
-                array_push($PostModelArray, $this->pullPostFromDatabase($row['postID']));
-                //echo $row['postID'];
+                array_push($PostModelArray, $this->pullPostFromDatabase($row['postId']));
+                //echo $row['postId'];
                 //echo "<br>";
             }
         }  
