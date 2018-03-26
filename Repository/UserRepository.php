@@ -46,14 +46,14 @@ class UserRepository extends Repository
         // I split them up into different commands because the other one didn't seem to work.
         $this->connection->query("UPDATE users SET firstName='$UserModel->userFirstName' WHERE userID=$UserModel->userID");
         $this->connection->query("UPDATE users SET lastName='$UserModel->userLastName' WHERE userID=$UserModel->userID");
-        $this->connection->query("UPDATE users SET dateOfBirth='$UserModel->userDOB' WHERE userID=$UserModel->userID");
+        $this->connection->query("UPDATE users SET dateOfBirth='$UserModel->userDob' WHERE userID=$UserModel->userID");
         $this->connection->query("UPDATE users SET bio='$UserModel->userBio' WHERE userID=$UserModel->userID");
         $this->connection->query("UPDATE users SET interest='$UserModel->userInterest' WHERE userID=$UserModel->userID");
         $this->connection->query("UPDATE users SET job='$UserModel->userJob' WHERE userID=$UserModel->userID");
         $this->connection->query("UPDATE users SET employer='$UserModel->userEmployer' WHERE userID=$UserModel->userID");
         $this->connection->query("UPDATE users SET isPublic='$UserModel->userIsPublic' WHERE userID=$UserModel->userID");
         //$this->connection->query("UPDATE users SET isSuspended='$UserModel->userIsSuspended' WHERE userID=$UserModel->userID"); This one doesn't work
-        $this->connection->query("UPDATE users SET profilePicture='$UserModel->userProfilePicture' WHERE userID=$UserModel->userID");
+        $this->connection->query("UPDATE users SET profilePictureId='$UserModel->userProfilePictureId' WHERE userID=$UserModel->userID");
     }
 
     function pullUserFromDatabase($userid)
@@ -80,7 +80,7 @@ class UserRepository extends Repository
             $UserModel->userEmployer = $row['employer'];
             $UserModel->userIsSuspended = $row['isSuspended'];
             $UserModel->userIsPublic = $row['isPublic'];
-            $UserModel->userProfilePicture = $row['profilePicture'];
+            $UserModel->userProfilePictureId = $row['profilePictureId'];
             $UserModel->userFriends = $this->fetchFriends($userid);
         }
 

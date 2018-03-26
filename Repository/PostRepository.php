@@ -56,7 +56,7 @@ class PostRepository extends Repository
 
             foreach($rows as $row)
             {
-                $PostModel =  $this->pullPostFromDatabase($row['postID']);
+                $PostModel =  $this->pullPostFromDatabase($row['postId']);
                 if($timestamp == null)
                     array_push($PostModelArray, $PostModel);
                 else
@@ -67,7 +67,7 @@ class PostRepository extends Repository
                         array_push($PostModelArray, $PostModel);
                     }
                 }
-                //echo $row['postID'];
+                //echo $row['postId'];
                 //echo "<br>";
             }
         }  

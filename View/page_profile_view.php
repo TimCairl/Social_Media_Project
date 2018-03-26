@@ -6,14 +6,17 @@
     require_once("../Repository/UserRepository.php");
     require_once("../Repository/PostRepository.php");
     require_once("../Repository/CommentRepository.php");
+    require_once("../Repository/PictureRepository.php");
     
     $AppSettingsRepository = new AppSettingsRepository();
     $UserRepository = new UserRepository();
     $PostRepository = new PostRepository();
     $CommentRepository = new CommentRepository();
+    $PictureRepository = new PictureRepository();
     
-    $AppSettingsModel = $AppSettingsRepository->pullAllFromDatabase();
+    $AppSettings = $AppSettingsRepository->pullAllFromDatabase();
     $UserModel = $UserRepository->pullUserFromDatabase($_SESSION['viewID']);
+    $Picture = $PictureRepository->pullImageDataFromDataBase($UserModel->userProfilePictureId);
 
     // time() produces a timestamp
     // use strtotime($date) to convert a date from the table to a timestamp
@@ -58,7 +61,8 @@
                 echo 
                 "
                 <div class='infoBox'>
-                [Profile Picture Goes Here]<br>
+                [Profile Picture]<br>
+                <img src='$Picture->pictureLink' alt='$Picture->pictureAltText' width='250' height='250'>
                 <br>
 
                 <div class='infoTitle'>Name:

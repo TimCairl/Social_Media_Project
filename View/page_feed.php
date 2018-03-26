@@ -14,7 +14,7 @@
   $PostRepository = new PostRepository();
   $CommentRepository = new CommentRepository();
 
-  $AppSettingsModel = $AppSettingsRepository->pullAllFromDatabase();
+  $AppSettings = $AppSettingsRepository->pullAllFromDatabase();
   $UserModel = $UserRepository->pullUserFromDatabase($_SESSION['userID']);
 
   $ViewMyPosts = true;
@@ -40,7 +40,7 @@
   </head>
   <body class='BG_LGrey'>
     <div class='BG_DGrey title'>
-      <?php echo $AppSettingsModel->applicationName ?> <br>
+      <?php echo $AppSettings->applicationName ?> <br>
     </div>
     
     <div class='navBar'>
