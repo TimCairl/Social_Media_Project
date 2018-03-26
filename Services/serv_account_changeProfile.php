@@ -18,7 +18,7 @@
     suspend
     */
 
-    $UserModel->userProfilePicture = $_POST['picture'];
+    $UserModel->userProfilePictureId = $_POST['picture'];
     $UserModel->userFirstName = $_POST['firstName'];
     $UserModel->userLastName = $_POST['lastName'];
     $UserModel->userDOB = $_POST['bday'];
@@ -31,6 +31,6 @@
 
     $UserRepo->update_user_data($UserModel);
     
-    header('Location: '.'../View/page_feed.php');
+    header('Location: '.'../View/page_profile_view.php');
     die();
 ?>

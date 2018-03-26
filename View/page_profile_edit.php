@@ -27,9 +27,9 @@
     <div class='createBox'>
         <form action="../Services/serv_account_changeProfile.php" method="post">
             <fieldset class='TXT_White createTextField'>
-                Profile Picture:
+                Profile Picture ID:
                 <br>
-                <input name='picture' size='55' value='<?php echo $UserModel->userProfilePictureId?>'>
+                <input name='picture' type='number' min='0' max='6' value='<?php echo $UserModel->userProfilePictureId?>'>
                 </input>
                 <br>
                 <br>

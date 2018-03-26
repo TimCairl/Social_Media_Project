@@ -61,9 +61,10 @@
                 echo 
                 "
                 <div class='infoBox'>
-                [Profile Picture]<br>
+                <div class='TXT_Center'>
                 <img src='$Picture->pictureLink' alt='$Picture->pictureAltText' width='250' height='250'>
                 <br>
+                </div>
 
                 <div class='infoTitle'>Name:
                 <div class='infoField'> $UserModel->userFirstName $space $UserModel->userLastName </div>
