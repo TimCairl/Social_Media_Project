@@ -9,7 +9,7 @@
     $AppSettingsRepository = new AppSettingsRepository();
     $UserRepo = new UserRepository();
  
-    $AppSettingsModel = $AppSettingsRepository->pullAllFromDatabase();
+    $AppSettings = $AppSettingsRepository->pullAllFromDatabase();
     $UserModel = $UserRepo->pullUserFromDatabase($_SESSION['userID']);
 ?>
 
@@ -21,7 +21,7 @@
 
 <body class='BG_LGrey'>
     <div class='BG_DGrey title'>
-        <?php echo $AppSettingsModel->applicationName ?> <br>
+        <?php echo $AppSettings->applicationName ?> <br>
     </div>
 
     <div class='createBox'>
@@ -29,7 +29,7 @@
             <fieldset class='TXT_White createTextField'>
                 Profile Picture:
                 <br>
-                <input name='picture' size='55' value='<?php echo $UserModel->userProfilePicture?>'>
+                <input name='picture' size='55' value='<?php echo $UserModel->userProfilePictureId?>'>
                 </input>
                 <br>
                 <br>
@@ -43,7 +43,7 @@
 
                 Date-of-Birth:
                 <br>
-                <input type='date' name='bday' min='1900-01-01' value='<?php echo $UserModel->userDOB?>'>
+                <input type='date' name='bday' min='1900-01-01' value='<?php echo $UserModel->userDob?>'>
                 <br>
                 <br>
 
