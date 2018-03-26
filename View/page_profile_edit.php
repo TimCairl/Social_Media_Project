@@ -4,11 +4,12 @@
     $_SESSION['viewID'] = $_SESSION['userID'];
 
     require_once("../Repository/AppSettingsRepository.php");
-    $AppSettingsRepository = new AppSettingsRepository();
-    $AppSettingsModel = $AppSettingsRepository->pullAllFromDatabase();
-
     require_once("../Repository/UserRepository.php");
+
+    $AppSettingsRepository = new AppSettingsRepository();
     $UserRepo = new UserRepository();
+ 
+    $AppSettingsModel = $AppSettingsRepository->pullAllFromDatabase();
     $UserModel = $UserRepo->pullUserFromDatabase($_SESSION['userID']);
 ?>
 
@@ -19,7 +20,6 @@
 </head>
 
 <body class='BG_LGrey'>
-    <div class='BG_Blue'> <br> </div>
     <div class='BG_DGrey title'>
         <?php echo $AppSettingsModel->applicationName ?> <br>
     </div>

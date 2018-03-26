@@ -5,7 +5,7 @@
 
 .BG_Blue
 {
-  background-color: rgb(55, 92, 165);
+  background-color: #0644A8;
 }
 
 .BG_LGrey
@@ -31,7 +31,7 @@
 
 .TXT_Blue
 {
-  color: rgb(55, 92, 165);
+  color: #0644A8;
 }
 
 .TXT_LGrey
@@ -65,6 +65,38 @@
   border-right: 20px solid #AF5B26;
   border-top: 10px solid #AF5B26;
   border-bottom: 10px solid #AF5B26;
+}
+
+.titleBottom
+{
+  background-color: #AF5B26;
+  height: 10px;
+}
+
+.navBar
+{
+  color: #E5DCC5;
+  background-color: #2D2D2A;
+  padding: 0px 20px 0px 20px;
+  height: 50px;
+}
+
+.navBar a 
+{
+  font-size: 115%;
+  width: 70px;
+  height: 35px;
+  float: left;
+  display: block;
+  color: #E5DCC5;
+  text-align: center;
+  text-decoration: none;
+  padding: 15px 10px 0px 10px;
+}
+
+.navBar a:hover 
+{
+  background-color: #4C4C47;
 }
 
 .loginBox
@@ -102,11 +134,12 @@
 
 .infoBox
 {
+  float: left;
+  width: 25%;
   color: #E5DCC5;
   font-size: 125%;
-  width: 500px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
   border-left: 20px solid #AF5B26;
@@ -115,10 +148,16 @@
   background-color: #2D2D2A;
 }
 
+.infoTitle
+{
+  color: #E5DCC5;
+  border-left: 10px solid #0644A8;
+  border-bottom: 5px solid #0644A8;
+}
+
 .infoField
 {
   color: black;
-  width: 460px;
   background-color: #E5DCC5;
   padding: 5px;
 }
@@ -126,6 +165,26 @@
 .postBox
 {
   color: black;
-  border: 2px solid lightgrey;
+  border: 2px solid black;
   width: 500px;
+}
+
+.profileInfo
+{
+  float: right;
+  width: 40%;
+  background-color: white;
+}
+
+.postBar
+{
+  background-color: #4C4C47;
+  text-align: center;
+}
+
+.profilePosts
+{
+  float: left;
+  background-color: #E5DCC5;
+  border: 25px solid #4C4C47;
 }

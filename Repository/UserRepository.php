@@ -80,7 +80,8 @@ class UserRepository extends Repository
             $UserModel->userEmployer = $row['employer'];
             $UserModel->userIsSuspended = $row['isSuspended'];
             $UserModel->userIsPublic = $row['isPublic'];
-            $UserModel->userProfilePictureId = $row['profilePictureId'];
+            $UserModel->userProfilePicture = $row['profilePicture'];
+            $UserModel->userFriends = $this->fetchFriends($userid);
         }
 
         return $UserModel;
@@ -111,12 +112,9 @@ class UserRepository extends Repository
                 $row = $result->fetch_assoc();
                 array_push($friendIds, $row['friendsUserId']);
             }
-            return $friendIds;
         }
-        else
-        {
-            return null;
-        }
+        return $friendIds;
+
     }
 
     function searchUsersByUsername($username)

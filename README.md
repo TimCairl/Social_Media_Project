@@ -33,3 +33,65 @@ o UI for posts
 --o submit
 
 
+=========================================
+
+This was the original list of requirements
+
++------------+
+| Class List |
++------------+
+
+-=[ Must Have ]=-
+
+[m1] User Management / Profile Page
+-----------------------------------
+(done) Suspend/Deactivate Account
+(done) Change Password
+(done) Update User Information
+o Change Profile Picture
+o Manage Posts
+(done expect for feed) Public/Private Setting
+(done) Manage Friends
+
+[m2] News Feed
+--------------
+(done?) Display friends' posts in chronological order
+ o _____ loaded posts + view more posts
+ o Good user performance
+ o Make post
+
+[m3] Make Posts
+---------------
+(done) from Profile Page
+ o from News Feed
+ o Write text and/or post Image
+ o Delete Post
+
+[m4] Connect with Friends
+-------------------------
+(done) Add Friends
+(S2 Bonus) Auto-Complete 
+(done) Search Bar
+ o Search History
+
+[m5] Authorization
+------------------
+(done) Access profile based on credentials
+(done) Sign Up
+(done?) Log In / Out
+
+
+-=[ Nice to Have ]=-
+
+[n2] Setup Groups
+-----------------
+ o Create Group Profile
+ o Invite Users
+
+[n1] Leave Feedback
+ o Comment on Posts
+ o Perform Actions
+
+[n3] Manage Photos
+ o Make Albums
+ o Delete Photos

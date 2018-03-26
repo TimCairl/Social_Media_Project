@@ -11,6 +11,6 @@
 //date_timestamp_get(date_create());//
     $PostRepo->pushPostToDatabase($userID, $subject, $body, $timestamp);
 
-    header('Location: '.'../View/page_profile_posts.php');
+    header('Location: '.'../View/page_profile_view.php');
     die();
 ?>
