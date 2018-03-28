@@ -33,6 +33,21 @@ o UI for posts
 --o submit
 
 
+
+/\/\/\/\/\
+|Sprint 4|
+\/\/\/\/\/
+
+As a user I want to see my news feed:
+-------------------------------------
+o My posts
+o My Friends' posts
+o See all posts in order of datetime
+
+
+
+
+
 =========================================
 
 This was the original list of requirements

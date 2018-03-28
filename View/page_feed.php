@@ -27,7 +27,9 @@
   // use strtotime($date) to convert a date from the table to a timestamp
   // date('Y/m/d H:i:s', $timestamp) to get a properly formatted date
   // subtract a number of seconds from time()
-  $timestamp = time() - 7200; // Current Time - 2 Hours | Will add a setting later
+  //$timestamp = time() - 7200; // Current Time - 2 Hours | Will add a setting later
+
+  $timestamp = date('Y/m/d H:i:s', (time() - 7200));
   $PostModelArray = $PostRepository->getFeed($UserModel->userFriends, $timestamp);
 
   //'<a href="../Services/serv_friend_goTo.php?friendID='.$Temp->userID.'">'.$Temp->username.'</a>';

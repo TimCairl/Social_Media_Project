@@ -1,46 +1,21 @@
 <?php
-require_once(realpath($_SERVER["DOCUMENT_ROOT"])."/Social_Media_Project/Repository/Repository.php");
-require_once(realpath($_SERVER["DOCUMENT_ROOT"])."/Social_Media_Project/Model/UserModel.php");
+require_once(realpath($_SERVER["DOCUMENT_ROOT"])."/Social_Media_Project/Repos/repo.php");
+require_once(realpath($_SERVER["DOCUMENT_ROOT"])."/Social_Media_Project/Models/model_user.php");
+
 class UserRepository extends Repository
 {
-    function pushToDatabase()
-    {
-        //Template of this function that can be used for classes inheriting from this class.
-        //$sql = "insert into users (username, password, firstName, lastName) values('test123', 'password123', 'Joe', 'Schmoe')";
-        //$connection->query($sql);
-
-        //I tried adding an argument to this and it didn't work so I made pushUserToDataBase();
-    }
-
-    function pushUserToDatabase($username, $password, $fname, $lname, $dob, $privacy)
+    function pushUserToDatabase($username, $password, $fname, $lname, $dob)
     {
         $t = "-None-";
         
         $sql = "INSERT INTO users (username, password, firstName, lastName, dateOfBirth, bio, interest, job, employer, isSuspended, isPublic, profilePictureId) 
-        VALUES ('$username', '$password', '$fname', '$lname', '$dob', 'This is my page!', '$t', '$t', '$t', '0', '$privacy', '0')";
+        VALUES ('$username', '$password', '$fname', '$lname', '$dob', 'This is my page!', '$t', '$t', '$t', '0', '1', '0')";
     
         $this->connection->query($sql);
     }
 
-    function update_user_data($UserModel)
+    function updateUserData($UserModel)
     {
-        //Could probably cut out first name, last name, and date of birth
-
-        /*
-        $sqlcommand = "UPDATE users SET
-         firstName='$UserModel->userFirstName',
-         lastName='$UserModel->userLastName',
-         dateOfBirth='$UserModel->userDOB',
-         bio='$UserModel->userBio',
-         interest='$UserModel->userInterest',
-         job='$UserModel->userJob',
-         employeer='$UserModel->userEmployer',
-         isSuspended='$UserModel->userIsSuspended',
-         isPublic='$UserModel->userIsPublic',
-         profilePicture='$userProfilePicture',
-         WHERE userId = $UserModel->userID";
-        */
-
         //$sqlcommand = "UPDATE users SET firstName='$UserModel->userFirstName' WHERE userID=$UserModel->userID";
 
         // I split them up into different commands because the other one didn't seem to work.
@@ -87,8 +62,7 @@ class UserRepository extends Repository
         return $UserModel;
     }
 
-    // Also used to check if a username is in the database already.
-    function get_ID_with_Username($username)
+    function getUserIDWithUsername($username)
     {
         $id = -1;
         $result = $this->connection->query("SELECT userId FROM users WHERE username='$username'");
@@ -114,7 +88,6 @@ class UserRepository extends Repository
             }
         }
         return $friendIds;
-
     }
 
     function searchUsersByUsername($username)

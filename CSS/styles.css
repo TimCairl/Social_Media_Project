@@ -101,6 +101,7 @@
 
 .loginBox
 {
+  margin: 0 auto;
   width: 250px;
   padding-left: 5px;
   padding-right: 5px;

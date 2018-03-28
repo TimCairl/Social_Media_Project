@@ -1,7 +1,8 @@
 <?php
-require_once(realpath($_SERVER["DOCUMENT_ROOT"])."/Social_Media_Project/Repository/Repository.php");
-require_once(realpath($_SERVER["DOCUMENT_ROOT"])."/Social_Media_Project/Model/PostModel.php");
+require_once(realpath($_SERVER["DOCUMENT_ROOT"])."/Social_Media_Project/Repos/repo.php");
+require_once(realpath($_SERVER["DOCUMENT_ROOT"])."/Social_Media_Project/Models/model_post.php");
 
+// Change this
 function sortPostsByTimestamp($PostModelA, $PostModelB)
 {
     return strtotime($PostModelA->postTimestamp) - strtotime($PostModelB->postTimestamp);
@@ -44,16 +45,9 @@ class PostRepository extends Repository
     {
         $PostModelArray = array();
 
-        
-        if($timestamp == null)
-            $sqlcommand = "SELECT postId FROM posts WHERE userId='$userID'";
-        else
-        {
-            $sqlcommand = "SELECT postId FROM posts WHERE userId='$userID' AND timestamp<='$timestamp'";
-
-        }
-
+        $sqlcommand = "SELECT postId FROM posts WHERE userId='$userID'";
         $result = $this->connection->query($sqlcommand);
+
         if($result->num_rows > 0)
         {
             while($row = $result->fetch_assoc())
@@ -64,7 +58,18 @@ class PostRepository extends Repository
             foreach($rows as $row)
             {
                 $PostModel =  $this->pullPostFromDatabase($row['postId']);
-                array_push($PostModelArray, $PostModel);
+                if($timestamp == null)
+                    array_push($PostModelArray, $PostModel);
+                else
+                {
+                    //$PostDate = strtotime($PostModel->postTimestamp);
+                    //if($PostDate > $timestamp)
+                    //{
+                    //    array_push($PostModelArray, $PostModel);
+                    //}
+                }
+                //echo $row['postId'];
+                //echo "<br>";
             }
         }  
 
