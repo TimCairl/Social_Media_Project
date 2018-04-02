@@ -49,7 +49,7 @@ class PostRepository extends Repository
             $sqlcommand = "SELECT postId FROM posts WHERE userId='$userID'";
         else
         {
-            $sqlcommand = "SELECT postId FROM posts WHERE userId='$userID' AND timestamp<='$timestamp'";
+            $sqlcommand = "SELECT postId FROM posts WHERE userId='$userID' AND timestamp>=DATE_SUB(NOW(), INTERVAL 2 DAY)";
 
         }
 
