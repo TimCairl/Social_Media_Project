@@ -22,8 +22,7 @@ $UserModel->userFriends = $UserRepository->fetchFriends($_SESSION['userID']);
         <link rel="stylesheet" type="text/css" href="../CSS/styles.css">
     </head>
 
-    <body class='BG_LGrey'>
-        <div class='BG_Blue'><br></div>
+    <body>
         <div class='BG_DGrey title'>
         <?php echo $AppSettings->applicationName ?> <br>
         </div>

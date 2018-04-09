@@ -7,14 +7,14 @@ $UserRepo = new UserRepository();
 $id = $UserRepo->get_ID_with_Username($_POST["username"]);
 if($id == -1)
 {
-    header('Location: '.'../View/page_front.php');
+    header('Location: '.'../View/page_logIn_failed.php');
     die();
 }
 
 $UserModel = $UserRepo->pullUserFromDatabase($id);
 if($_POST["password"] != $UserModel->userPassword)
 {
-    header('Location: '.'../View/page_front.php');
+    header('Location: '.'../View/page_logIn_failed.php');
     die();
 }
 
